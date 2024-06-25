@@ -33,40 +33,7 @@ namespace Prototype
 
         private void button1_Click(object sender, EventArgs e)
         {
-            /*string[] lines = File.ReadAllLines("data.txt");
-            foreach (string line in lines)
-            {
-                Debug.WriteLine(line);
-                string[] User = line.Split(',');
-                int valid = 0;
-
-             
-                
-                    for (int i = 0; i <= User.Length; i++)
-                    {
-                        if (User[0] == textBox4.Text && User[2] == textBox5.Text)
-                        {
-                            int Id = Convert.ToInt32(User[3]);
-                            Class1.UserName = User[0];
-                            Class1.UserEmail = User[1];
-                            Class1.UserPass = User[2];
-                            Class1.UserId = Id;
-                            Class1.UserImage = User[4];
-
-                            this.Hide();
-                            Form3 form3 = new Form3();
-                            form3.ShowDialog();
-                            break;
-                            this.Close();
-
-                        }
-                    }
-
-                
-
-                
-            
-            }   */
+           
 
 
             string username = textBox4.Text;
@@ -119,7 +86,7 @@ namespace Prototype
                 }
                 else
                 {
-                    // Login failed
+         
                     MessageBox.Show("Login failed. Please check your username and password.");
 
 
@@ -147,6 +114,11 @@ namespace Prototype
                     textBox5.PasswordChar = '\0';
                 }
             }
+        }
+
+        private void Form2_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

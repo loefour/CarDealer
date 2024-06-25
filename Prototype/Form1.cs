@@ -1,8 +1,9 @@
-using Microsoft.Data.SqlClient;
+ using Microsoft.Data.SqlClient;
 using System.Data.SqlClient;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 using System.Diagnostics;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Prototype
 {
@@ -10,6 +11,7 @@ namespace Prototype
     {
 
         private string connectionString = "Data Source=DESKTOP-RC7E9BL\\MSSQLSERVER01;Initial Catalog=loginapp;Integrated Security=True;Encrypt=True;Trust Server Certificate=True";
+
 
 
         public Form1()
@@ -34,34 +36,32 @@ namespace Prototype
         private void button1_Click(object sender, EventArgs e)
         {
 
-            /*Random rnd = new Random();
-
-
-            string name = textBox1.Text;
-            string email = textBox2.Text;
-            string pass = textBox3.Text;
-            int Id = rnd.Next(5, 1000);
-
-            File.AppendAllText("data.txt", $"{name},{email},{pass},{Id},{Image}\n");
-
             
-
-            Class1.UserName = name;
-            Class1.UserPass = pass;
-            Class1.UserEmail = email;
-            Class1.UserId = Id;
-            Class1.UserImage = Image;
-
-            Debug.WriteLine(name + " " + pass+ " " + email + " " + Id +" "+ Image);
-
-            textBox1.Text = "";
-            textBox2.Text = "";
-            textBox3.Text = "";*/
 
 
             string username = textBox1.Text;
             string email = textBox2.Text;
             string password = textBox3.Text;
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                string createTableQuery = $"CREATE TABLE {username} (image VARCHAR(MAX), name VARCHAR(50), price VARCHAR(50), count VARCHAR(50))";
+                using (SqlCommand command = new SqlCommand(createTableQuery, connection))
+                {
+                    Debug.WriteLine("Open Connction createTabel");
+                    int resualt = command.ExecuteNonQuery();
+                    if (resualt > 0)
+                    {
+
+
+                        MessageBox.Show("Table 'Customer' created successfully!");
+
+                    }
+
+                }
+            }
+
 
             string query = "INSERT INTO loginapp (Username, Email, Password, Image, Vault) VALUES (@username, @email, @password, @image, @vault)";
 
@@ -70,7 +70,7 @@ namespace Prototype
             using (SqlCommand cmd = new SqlCommand(query, con))
             {
 
-                int newVautl = 0;   
+                int newVautl = 0;
                 cmd.Parameters.AddWithValue("@username", username);
                 cmd.Parameters.AddWithValue("@password", password);
                 cmd.Parameters.AddWithValue("@email", email);
@@ -86,6 +86,11 @@ namespace Prototype
                 if (result > 0)
                 {
                     MessageBox.Show($"Registration successful {username}.");
+                    if(image == "")
+                    {
+                        image = "C:\\Users\\Arian\\Downloads\\default-avatar-profile-icon-of-social-media-user-vector.jpg";
+                    }
+
                     Class1.UserName = username;
                     Class1.UserPass = password;
                     Class1.UserEmail = email;
@@ -104,20 +109,11 @@ namespace Prototype
                 {
                     MessageBox.Show("Registration failed. Please try again.");
                 }
+
+                con.Close();
             }
 
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                connection.Open();
 
-                string createTableQuery = $"CREATE TABLE {username} (image VARCHAR(MAX), name VARCHAR(50))";
-                    
-                using (SqlCommand command = new SqlCommand(createTableQuery, connection))
-                {
-                    command.ExecuteNonQuery();
-                    MessageBox.Show("Table 'Customer' created successfully!");
-                }
-            }
 
 
 
@@ -138,6 +134,29 @@ namespace Prototype
             this.Close();
         }
 
-        
+
+
+        private void OpenEyeImage_Click_1(object sender, EventArgs e)
+        {
+            if (textBox3.PasswordChar == '\0')
+            {
+                CloseEyeImage.BringToFront();
+                textBox3.PasswordChar = '*';
+            }
+        }
+
+        private void CloseEyeImage_Click_1(object sender, EventArgs e)
+        {
+            if (textBox3.PasswordChar == '*')
+            {
+                OpenEyeImage.BringToFront();
+                textBox3.PasswordChar = '\0';
+            }
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

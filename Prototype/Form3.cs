@@ -52,14 +52,22 @@ namespace Prototype
             if (Class1.UserAdmin == "administrator")
             {
                 userManageLabel.Enabled = true;
+                updatebutton.Enabled = true;
             }
-            else if(Class1.UserAdmin == "admin")
+            else if (Class1.UserAdmin == "admin")
             {
                 userManageLabel.Enabled = true;
+                updatebutton.Enabled = false;
+                updatebutton.Hide();
+
+
             }
             else
             {
                 userManageLabel.Enabled = false;
+                updatebutton.Enabled = false;
+                updatebutton.Hide();
+                userManageLabel.Hide();
             }
 
 
@@ -203,31 +211,13 @@ namespace Prototype
                 }
             }
 
-            /*using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                SqlDataAdapter adapter = new SqlDataAdapter("SELECT * FROM loginapp", connection);
-                DataSet dataSet = new DataSet();
-                adapter.Fill(dataSet, "loginapp");
-            }
-
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                SqlDataAdapter adapter = new SqlDataAdapter("SELECT * FROM image_list", connection);
-                DataSet dataSet = new DataSet();
-                adapter.Fill(dataSet, "image_list");
-            }*/
-            /* this.Close();
-
-             // Create and show a new instance of the same form
-             Form3 newForm = new Form3();
-             newForm.ShowDialog();*/
-
+            
 
             this.Hide();
-            Debug.WriteLine("Slama mashty");// Hide the current form
+            Debug.WriteLine("Slama mashty");
             Form3 newForm = new Form3();
             newForm.FormClosed += (s, args) => this.Close();
-            // Close the current form when the new form is closed
+            
 
             newForm.ShowDialog();
             Debug.WriteLine("khodahafez mashty");
@@ -248,15 +238,33 @@ namespace Prototype
         private void logOutButton_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Debug.WriteLine("Slama mashty");// Hide the current form
+            Debug.WriteLine("Slama mashty");
             Form2 newForm = new Form2();
             newForm.FormClosed += (s, args) => this.Close();
-            // Close the current form when the new form is closed
+          
 
             newForm.ShowDialog();
             Debug.WriteLine("khodahafez mashty");
-            this.Close();// Hide the current form
+            this.Close();
 
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+            update update = new update();
+            update.ShowDialog();
+
+        }
+
+        private void SearchButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+
+            Search search = new Search();   
+            search.ShowDialog();
+
+            this.Close();
         }
     }
 }

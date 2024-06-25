@@ -38,16 +38,27 @@
             textBox1 = new TextBox();
             pictureBox1 = new PictureBox();
             openFileDialog1 = new OpenFileDialog();
+            panel2 = new Panel();
+            panel1 = new Panel();
+            panel3 = new Panel();
+            label5 = new Label();
+            label6 = new Label();
+            OpenEyeImage = new PictureBox();
+            CloseEyeImage = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)OpenEyeImage).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)CloseEyeImage).BeginInit();
             SuspendLayout();
             // 
             // button1
             // 
-            button1.BackColor = Color.FromArgb(255, 128, 0);
+            button1.BackColor = Color.FromArgb(63, 119, 132);
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Font = new Font("Bauhaus 93", 9F);
             button1.ForeColor = Color.White;
-            button1.Location = new Point(428, 396);
+            button1.Location = new Point(71, 454);
             button1.Name = "button1";
-            button1.Size = new Size(94, 29);
+            button1.Size = new Size(250, 29);
             button1.TabIndex = 13;
             button1.Text = "Submit";
             button1.UseVisualStyleBackColor = false;
@@ -56,70 +67,78 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(334, 284);
+            label3.Font = new Font("Bauhaus 93", 10.8F);
+            label3.Location = new Point(66, 346);
             label3.Name = "label3";
-            label3.Size = new Size(49, 20);
+            label3.Size = new Size(60, 20);
             label3.TabIndex = 12;
             label3.Text = "Email:";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(344, 339);
+            label2.Font = new Font("Bauhaus 93", 10.8F);
+            label2.Location = new Point(70, 401);
             label2.Name = "label2";
-            label2.Size = new Size(39, 20);
+            label2.Size = new Size(51, 20);
             label2.TabIndex = 11;
             label2.Text = "Pass:";
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(331, 229);
+            label1.Font = new Font("Bauhaus 93", 10.8F);
+            label1.Location = new Point(65, 292);
             label1.Name = "label1";
-            label1.Size = new Size(52, 20);
+            label1.Size = new Size(62, 20);
             label1.TabIndex = 10;
             label1.Text = "Name:";
             // 
             // textBox3
             // 
-            textBox3.Location = new Point(389, 332);
+            textBox3.BorderStyle = BorderStyle.None;
+            textBox3.Location = new Point(127, 400);
             textBox3.Name = "textBox3";
-            textBox3.Size = new Size(170, 27);
+            textBox3.Size = new Size(196, 20);
             textBox3.TabIndex = 9;
             // 
             // textBox2
             // 
-            textBox2.Location = new Point(389, 277);
+            textBox2.BorderStyle = BorderStyle.None;
+            textBox2.Location = new Point(127, 345);
             textBox2.Name = "textBox2";
-            textBox2.Size = new Size(170, 27);
+            textBox2.Size = new Size(196, 20);
             textBox2.TabIndex = 8;
             // 
             // label4
             // 
             label4.AutoSize = true;
             label4.Cursor = Cursors.Hand;
-            label4.ForeColor = Color.Blue;
-            label4.Location = new Point(452, 456);
+            label4.Font = new Font("Bauhaus 93", 12F);
+            label4.ForeColor = Color.FromArgb(71, 222, 217);
+            label4.Location = new Point(176, 506);
             label4.Name = "label4";
-            label4.Size = new Size(46, 20);
+            label4.Size = new Size(57, 23);
             label4.TabIndex = 14;
             label4.Text = "Login";
             label4.Click += label4_Click;
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(389, 222);
+            textBox1.BorderStyle = BorderStyle.None;
+            textBox1.Location = new Point(127, 290);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(170, 27);
+            textBox1.Size = new Size(196, 20);
             textBox1.TabIndex = 7;
             // 
             // pictureBox1
             // 
             pictureBox1.BackColor = Color.FromArgb(128, 128, 255);
             pictureBox1.Cursor = Cursors.Hand;
-            pictureBox1.Location = new Point(389, 45);
+            pictureBox1.Image = Properties.Resources.default_avatar_profile_icon_of_social_media_user_vector;
+            pictureBox1.Location = new Point(106, 12);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(170, 137);
+            pictureBox1.Size = new Size(195, 152);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 15;
             pictureBox1.TabStop = false;
@@ -129,11 +148,90 @@
             // 
             openFileDialog1.FileName = "openFileDialog1";
             // 
+            // panel2
+            // 
+            panel2.BackColor = Color.FromArgb(63, 119, 132);
+            panel2.Location = new Point(71, 365);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(250, 1);
+            panel2.TabIndex = 16;
+            // 
+            // panel1
+            // 
+            panel1.BackColor = Color.FromArgb(63, 119, 132);
+            panel1.Location = new Point(71, 420);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(250, 1);
+            panel1.TabIndex = 17;
+            // 
+            // panel3
+            // 
+            panel3.BackColor = Color.FromArgb(63, 119, 132);
+            panel3.Location = new Point(71, 310);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(250, 1);
+            panel3.TabIndex = 17;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.BackColor = SystemColors.Window;
+            label5.Font = new Font("Broadway", 22.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label5.ForeColor = Color.FromArgb(71, 222, 217);
+            label5.Location = new Point(120, 218);
+            label5.Name = "label5";
+            label5.Size = new Size(167, 42);
+            label5.TabIndex = 18;
+            label5.Text = "Sign Up";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Bauhaus 93", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label6.ForeColor = Color.FromArgb(63, 119, 132);
+            label6.Location = new Point(118, 167);
+            label6.Name = "label6";
+            label6.Size = new Size(175, 23);
+            label6.TabIndex = 19;
+            label6.Text = "Select Your Picture";
+            // 
+            // OpenEyeImage
+            // 
+            OpenEyeImage.Cursor = Cursors.Hand;
+            OpenEyeImage.Image = Properties.Resources.eye_close_up_61916;
+            OpenEyeImage.Location = new Point(314, 391);
+            OpenEyeImage.Name = "OpenEyeImage";
+            OpenEyeImage.Size = new Size(32, 32);
+            OpenEyeImage.SizeMode = PictureBoxSizeMode.StretchImage;
+            OpenEyeImage.TabIndex = 21;
+            OpenEyeImage.TabStop = false;
+            OpenEyeImage.Click += OpenEyeImage_Click_1;
+            // 
+            // CloseEyeImage
+            // 
+            CloseEyeImage.Cursor = Cursors.Hand;
+            CloseEyeImage.Image = Properties.Resources.invisible_98494;
+            CloseEyeImage.Location = new Point(314, 391);
+            CloseEyeImage.Name = "CloseEyeImage";
+            CloseEyeImage.Size = new Size(32, 32);
+            CloseEyeImage.SizeMode = PictureBoxSizeMode.StretchImage;
+            CloseEyeImage.TabIndex = 20;
+            CloseEyeImage.TabStop = false;
+            CloseEyeImage.Click += CloseEyeImage_Click_1;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(932, 529);
+            BackColor = Color.White;
+            ClientSize = new Size(393, 581);
+            Controls.Add(OpenEyeImage);
+            Controls.Add(CloseEyeImage);
+            Controls.Add(label6);
+            Controls.Add(label5);
+            Controls.Add(panel3);
+            Controls.Add(panel1);
+            Controls.Add(panel2);
             Controls.Add(pictureBox1);
             Controls.Add(label4);
             Controls.Add(button1);
@@ -143,9 +241,13 @@
             Controls.Add(textBox3);
             Controls.Add(textBox2);
             Controls.Add(textBox1);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "Form1";
             Text = "Form1";
+            Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)OpenEyeImage).EndInit();
+            ((System.ComponentModel.ISupportInitialize)CloseEyeImage).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -162,5 +264,12 @@
         private TextBox textBox1;
         private PictureBox pictureBox1;
         private OpenFileDialog openFileDialog1;
+        private Panel panel2;
+        private Panel panel1;
+        private Panel panel3;
+        private Label label5;
+        private Label label6;
+        private PictureBox OpenEyeImage;
+        private PictureBox CloseEyeImage;
     }
 }

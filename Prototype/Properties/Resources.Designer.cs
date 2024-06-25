@@ -74,6 +74,16 @@ namespace Prototype.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap default_avatar_profile_icon_of_social_media_user_vector {
+            get {
+                object obj = ResourceManager.GetObject("default-avatar-profile-icon-of-social-media-user-vector", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap eye_close_up_61916 {
             get {
                 object obj = ResourceManager.GetObject("eye-close-up_61916", resourceCulture);
@@ -107,6 +117,16 @@ namespace Prototype.Properties {
         internal static System.Drawing.Bitmap photo_2024_06_07_21_45_55 {
             get {
                 object obj = ResourceManager.GetObject("photo_2024-06-07_21-45-55", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap photo_2024_06_07_22_13_25 {
+            get {
+                object obj = ResourceManager.GetObject("photo_2024-06-07_22-13-25", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

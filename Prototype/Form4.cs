@@ -22,6 +22,8 @@ namespace Prototype
         private string connectionString = "Data Source=DESKTOP-RC7E9BL\\MSSQLSERVER01;Initial Catalog=loginapp;Integrated Security=True;Encrypt=True;Trust Server Certificate=True";
 
 
+        private int FirstCarcount = 0;
+
 
         public Form4()
         {
@@ -36,8 +38,6 @@ namespace Prototype
             Infoform4.Text = carGeter.info;
             carImage.ImageLocation = carGeter.image;
             Priceform4.Text = "$" + Convert.ToString(carGeter.price);
-
-
 
 
         }
@@ -55,7 +55,7 @@ namespace Prototype
             string query = "UPDATE loginapp SET Vault = @vault WHERE Username = @username";
 
 
-            string query2 = $"INSERT INTO loefour (Image, Name) VALUES (@image, @name)";
+            string query2 = $"INSERT INTO {Class1.UserName} (Image, Name, Price) VALUES (@image, @name, @price)";
 
 
             string query3 = "DELETE FROM image_list WHERE Name = @name";
@@ -71,72 +71,81 @@ namespace Prototype
 
                 if (newBudget >= price)
                 {
+                    
                     newBudget = Class1.UserVault - price;
+                    Debug.WriteLine(newBudget);
+
+                    cmd.Parameters.AddWithValue("@vault", newBudget);
+                    cmd.Parameters.AddWithValue("@username", Class1.UserName);
+
+
+                    conn.Open();
+                    SqlDataReader rdr = cmd.ExecuteReader();
+                    if (rdr.Read())
+                    {
+                        string newVualt = rdr["vault"].ToString();
+                    }
+
+
+
+
+                    userDashBoardClass.image = carGeter.image;
+                    userDashBoardClass.count = clickCounter;
+                    userDashBoardClass.name = carGeter.name;
+
+
+
+                    conn.Close();
+
+
+                    using (SqlConnection con = new SqlConnection(connectionString))
+                    using (SqlCommand cd = new SqlCommand(query2, con))
+                    {
+                        cd.Parameters.AddWithValue("@name", carGeter.name);
+                        cd.Parameters.AddWithValue("@image", carGeter.image);
+                        cd.Parameters.AddWithValue("@price", carGeter.price);
+                
+
+
+
+                        con.Open();
+                        cd.ExecuteNonQuery();
+
+
+                    }
+
+
+                    using (SqlConnection co = new SqlConnection(connectionString))
+                    using (SqlCommand deletcmd = new SqlCommand(query3, co))
+                    {
+                        deletcmd.Parameters.AddWithValue("@name", carGeter.name);
+                        try
+                        {
+                            co.Open();
+                            int rowsAffected = deletcmd.ExecuteNonQuery();
+                            Console.WriteLine($"Deleted {rowsAffected} row(s)!");
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine($"Error: {ex.Message}");
+                        }
+                    }
                 }
 
                 else
                 {
-                    MessageBox.Show("to Expensive");
-                }
-
-                Debug.WriteLine(newBudget);
-
-                cmd.Parameters.AddWithValue("@vault", newBudget);
-                cmd.Parameters.AddWithValue("@username", Class1.UserName);
-
-
-                conn.Open();
-                SqlDataReader rdr = cmd.ExecuteReader();
-                if (rdr.Read())
-                {
-                    string newVualt = rdr["vault"].ToString();
-
-                    labeltotalcost.Text = newVualt;
+                    MessageBox.Show("to Expensive Or Car Your Selected Is out of sale");
                 }
 
 
-
-
-                userDashBoardClass.image = carGeter.image;
-                userDashBoardClass.count = clickCounter;
-                userDashBoardClass.name = carGeter.name;
-
-                /*creatring DashBoear Class for user Dhaboard*/
-
-                conn.Close();
 
             }
 
 
-            using (SqlConnection conn = new SqlConnection(connectionString))
-            using (SqlCommand cmd = new SqlCommand(query2, conn))
-            {
-                cmd.Parameters.AddWithValue("@name", carGeter.name);
-                cmd.Parameters.AddWithValue("@image", carGeter.image);
-
-                conn.Open();
-                cmd.ExecuteNonQuery();
-            }
 
 
-            using (SqlConnection conn = new SqlConnection(connectionString))
-            using (SqlCommand deletcmd = new SqlCommand(query3, conn))
-            {
-                deletcmd.Parameters.AddWithValue("@name", carGeter.name);
-                try
-                {
-                    conn.Open();
-                    int rowsAffected = deletcmd.ExecuteNonQuery();
-                    Console.WriteLine($"Deleted {rowsAffected} row(s)!");
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine($"Error: {ex.Message}");
-                }
-            }
 
-
-                this.Close();
-        }            
+            this.Close();
+        }
     }
 }

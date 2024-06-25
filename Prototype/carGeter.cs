@@ -12,7 +12,6 @@ namespace Prototype
         public static string info;
         public static int price;
         public static string image;
-        public static int amount;
 
 
     }

@@ -1,9 +1,12 @@
 ﻿using Microsoft.Data.SqlClient;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,43 +14,43 @@ using System.Windows.Forms;
 
 namespace Prototype
 {
-    public partial class DashBoard : Form
+    public partial class update : Form
     {
 
         private string connectionString = "Data Source=DESKTOP-RC7E9BL\\MSSQLSERVER01;Initial Catalog=loginapp;Integrated Security=True;Encrypt=True;Trust Server Certificate=True";
 
 
-        public DashBoard()
+        public update()
         {
             InitializeComponent();
         }
 
-
-        private void CreateUserControll(string name, string image, string price, string count)
+        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
-            DashBoardControl control = new DashBoardControl();
+
+        }
+
+
+        private void CreateUserControll(string name, string image, string price)
+        {
+            UserControl2 control = new UserControl2();
             {
                 control.name = name;
                 control.image = image;
                 control.price = price;
-                control.count = count;
             }
 
             flowLayoutPanel1.Controls.Add(control);
 
         }
 
-        private void DashBoard_Load(object sender, EventArgs e)
+
+        private void update_Load(object sender, EventArgs e)
         {
-            nameLabel.Text = Class1.UserName;
-            emailLabel.Text = Class1.UserEmail;
-            userImage.ImageLocation = Class1.UserImage;
 
 
+            string query = $"SELECT * FROM image_list";
 
-            string query = $"SELECT * FROM {Class1.UserName}";
-
-            MessageBox.Show($"DashBoard {Class1.UserName}");
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -61,11 +64,10 @@ namespace Prototype
                             string name = reader["name"].ToString();
                             string image = reader["image"].ToString();
                             string price = reader["price"].ToString();
-                            string count = reader["count"].ToString();
+                            Debug.WriteLine(price);
 
 
-
-                            CreateUserControll(name, image, price, count);
+                            CreateUserControll(name, image, price);
 
                         }
 
@@ -74,18 +76,15 @@ namespace Prototype
                     }
                 }
             }
-
-
-
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void CarAdderButton_Click(object sender, EventArgs e)
         {
             this.Hide();
 
-            Form3 newform = new Form3();
+            newCarAdd newCar = new newCarAdd();
 
-            newform.ShowDialog();
+            newCar.ShowDialog();
 
             this.Close();
         }

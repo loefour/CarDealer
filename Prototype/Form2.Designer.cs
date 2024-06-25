@@ -53,12 +53,13 @@
             button1.BackColor = Color.FromArgb(63, 119, 132);
             button1.FlatAppearance.BorderSize = 0;
             button1.FlatStyle = FlatStyle.Flat;
+            button1.Font = new Font("Bauhaus 93", 9F);
             button1.ForeColor = Color.White;
             button1.Location = new Point(65, 458);
             button1.Name = "button1";
             button1.Size = new Size(261, 29);
             button1.TabIndex = 4;
-            button1.Text = "button1";
+            button1.Text = "Log In";
             button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
             // 
@@ -67,11 +68,11 @@
             label3.AutoSize = true;
             label3.Cursor = Cursors.Hand;
             label3.FlatStyle = FlatStyle.Flat;
-            label3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label3.Font = new Font("Bauhaus 93", 12F);
             label3.ForeColor = Color.FromArgb(71, 222, 217);
             label3.Location = new Point(130, 508);
             label3.Name = "label3";
-            label3.Size = new Size(143, 28);
+            label3.Size = new Size(143, 23);
             label3.TabIndex = 5;
             label3.Text = "Back to Signup";
             label3.Click += label3_Click;
@@ -79,7 +80,7 @@
             // textBox4
             // 
             textBox4.BorderStyle = BorderStyle.None;
-            textBox4.Location = new Point(101, 341);
+            textBox4.Location = new Point(101, 338);
             textBox4.Name = "textBox4";
             textBox4.Size = new Size(222, 20);
             textBox4.TabIndex = 6;
@@ -95,7 +96,7 @@
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(61, 26);
+            pictureBox1.Location = new Point(65, 84);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(287, 200);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -106,11 +107,11 @@
             // 
             label4.AutoSize = true;
             label4.BackColor = SystemColors.Window;
-            label4.Font = new Font("Bauhaus 93", 22.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label4.Font = new Font("Broadway", 22.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label4.ForeColor = Color.FromArgb(71, 222, 217);
-            label4.Location = new Point(148, 229);
+            label4.Location = new Point(135, 21);
             label4.Name = "label4";
-            label4.Size = new Size(113, 42);
+            label4.Size = new Size(138, 42);
             label4.TabIndex = 9;
             label4.Text = "Log In";
             // 
@@ -137,7 +138,7 @@
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(63, 119, 132);
-            panel1.Location = new Point(76, 360);
+            panel1.Location = new Point(76, 357);
             panel1.Name = "panel1";
             panel1.Size = new Size(250, 1);
             panel1.TabIndex = 12;
@@ -195,6 +196,7 @@
             FormBorderStyle = FormBorderStyle.None;
             Name = "Form2";
             Text = "Form2";
+            Load += Form2_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();

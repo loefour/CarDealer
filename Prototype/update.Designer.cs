@@ -1,6 +1,6 @@
 ﻿namespace Prototype
 {
-    partial class Form5
+    partial class update
     {
         /// <summary>
         /// Required designer variable.
@@ -28,42 +28,48 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
             flowLayoutPanel1 = new FlowLayoutPanel();
-            imageList1 = new ImageList(components);
+            CarAdderButton = new Button();
             SuspendLayout();
             // 
             // flowLayoutPanel1
             // 
             flowLayoutPanel1.AutoScroll = true;
-            flowLayoutPanel1.BackColor = Color.FromArgb(34, 40, 45);
-            flowLayoutPanel1.Dock = DockStyle.Fill;
-            flowLayoutPanel1.Location = new Point(0, 0);
+            flowLayoutPanel1.BackColor = Color.FromArgb(63, 119, 132);
+            flowLayoutPanel1.ForeColor = SystemColors.ActiveCaptionText;
+            flowLayoutPanel1.Location = new Point(68, 12);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(502, 536);
+            flowLayoutPanel1.Padding = new Padding(20, 0, 0, 0);
+            flowLayoutPanel1.Size = new Size(928, 500);
             flowLayoutPanel1.TabIndex = 0;
+            flowLayoutPanel1.Paint += flowLayoutPanel1_Paint;
             // 
-            // imageList1
+            // CarAdderButton
             // 
-            imageList1.ColorDepth = ColorDepth.Depth32Bit;
-            imageList1.ImageSize = new Size(16, 16);
-            imageList1.TransparentColor = Color.Transparent;
+            CarAdderButton.Location = new Point(412, 558);
+            CarAdderButton.Name = "CarAdderButton";
+            CarAdderButton.Size = new Size(246, 63);
+            CarAdderButton.TabIndex = 0;
+            CarAdderButton.Text = "AddCar";
+            CarAdderButton.UseVisualStyleBackColor = true;
+            CarAdderButton.Click += CarAdderButton_Click;
             // 
-            // Form5
+            // update
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(502, 536);
+            ClientSize = new Size(1103, 684);
+            Controls.Add(CarAdderButton);
             Controls.Add(flowLayoutPanel1);
-            Name = "Form5";
-            Text = "Form5";
-            Load += Form5_Load;
+            Name = "update";
+            Text = "update";
+            Load += update_Load;
             ResumeLayout(false);
         }
 
         #endregion
 
         private FlowLayoutPanel flowLayoutPanel1;
-        private ImageList imageList1;
+        private Button CarAdderButton;
     }
 }

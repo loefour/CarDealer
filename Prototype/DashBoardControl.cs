@@ -17,6 +17,8 @@ namespace Prototype
             InitializeComponent();
         }
 
+        
+
         public string name
         {
             get { return carnameLabel.Text; }
@@ -29,6 +31,20 @@ namespace Prototype
             get { return carImage.ImageLocation; }
             set { carImage.ImageLocation = value; }
         }
+
+        public string price
+        {
+            get { return PriceLabel.Text; }
+            set { PriceLabel.Text = value; }
+        }
+
+        public string count
+        {
+            get { return CountLabel.Text; }
+            set { CountLabel.Text = value; }
+        }
+
+
 
         private void carnameLabel_Click(object sender, EventArgs e)
         {

@@ -43,7 +43,7 @@
             panel5 = new Panel();
             button2 = new Button();
             panel4 = new Panel();
-            button3 = new Button();
+            updatebutton = new Button();
             panel3 = new Panel();
             buttonRefrsh = new Button();
             panel2 = new Panel();
@@ -55,8 +55,6 @@
             pictureBox1 = new PictureBox();
             menuSidebar = new PictureBox();
             sideBar = new FlowLayoutPanel();
-            panel6 = new Panel();
-            userManageLabel = new Button();
             panel11 = new Panel();
             panel12 = new Panel();
             panel13 = new Panel();
@@ -64,7 +62,9 @@
             button8 = new Button();
             panel14 = new Panel();
             button9 = new Button();
-            button10 = new Button();
+            SearchButton = new Button();
+            panel6 = new Panel();
+            userManageLabel = new Button();
             panel7.SuspendLayout();
             panel9.SuspendLayout();
             panel10.SuspendLayout();
@@ -77,11 +77,11 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)menuSidebar).BeginInit();
             sideBar.SuspendLayout();
-            panel6.SuspendLayout();
             panel11.SuspendLayout();
             panel12.SuspendLayout();
             panel13.SuspendLayout();
             panel14.SuspendLayout();
+            panel6.SuspendLayout();
             SuspendLayout();
             // 
             // sideBarTimer
@@ -102,7 +102,7 @@
             flowLayoutPanel1.Dock = DockStyle.Fill;
             flowLayoutPanel1.Location = new Point(238, 0);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(856, 726);
+            flowLayoutPanel1.Size = new Size(856, 728);
             flowLayoutPanel1.TabIndex = 6;
             // 
             // panel7
@@ -110,7 +110,7 @@
             panel7.Controls.Add(panel9);
             panel7.Controls.Add(panel8);
             panel7.Controls.Add(logOutButton);
-            panel7.Location = new Point(3, 569);
+            panel7.Location = new Point(3, 417);
             panel7.Name = "panel7";
             panel7.Size = new Size(230, 73);
             panel7.TabIndex = 12;
@@ -196,7 +196,7 @@
             // panel5
             // 
             panel5.Controls.Add(button2);
-            panel5.Location = new Point(3, 490);
+            panel5.Location = new Point(3, 496);
             panel5.Name = "panel5";
             panel5.Size = new Size(230, 73);
             panel5.TabIndex = 11;
@@ -216,24 +216,25 @@
             // 
             // panel4
             // 
-            panel4.Controls.Add(button3);
-            panel4.Location = new Point(3, 338);
+            panel4.Controls.Add(updatebutton);
+            panel4.Location = new Point(3, 651);
             panel4.Name = "panel4";
             panel4.Size = new Size(230, 70);
             panel4.TabIndex = 8;
             // 
-            // button3
+            // updatebutton
             // 
-            button3.FlatStyle = FlatStyle.Flat;
-            button3.Font = new Font("Segoe UI Black", 9F, FontStyle.Bold | FontStyle.Italic);
-            button3.ForeColor = Color.Transparent;
-            button3.Location = new Point(-3, 3);
-            button3.Name = "button3";
-            button3.Size = new Size(233, 67);
-            button3.TabIndex = 7;
-            button3.Text = "Update";
-            button3.TextAlign = ContentAlignment.MiddleLeft;
-            button3.UseVisualStyleBackColor = true;
+            updatebutton.FlatStyle = FlatStyle.Flat;
+            updatebutton.Font = new Font("Segoe UI Black", 9F, FontStyle.Bold | FontStyle.Italic);
+            updatebutton.ForeColor = Color.Transparent;
+            updatebutton.Location = new Point(-3, 0);
+            updatebutton.Name = "updatebutton";
+            updatebutton.Size = new Size(233, 67);
+            updatebutton.TabIndex = 7;
+            updatebutton.Text = "Update";
+            updatebutton.TextAlign = ContentAlignment.MiddleLeft;
+            updatebutton.UseVisualStyleBackColor = true;
+            updatebutton.Click += button3_Click;
             // 
             // panel3
             // 
@@ -348,11 +349,11 @@
             sideBar.Controls.Add(panel1);
             sideBar.Controls.Add(panel2);
             sideBar.Controls.Add(panel3);
-            sideBar.Controls.Add(panel4);
-            sideBar.Controls.Add(panel6);
-            sideBar.Controls.Add(panel5);
-            sideBar.Controls.Add(panel7);
             sideBar.Controls.Add(panel11);
+            sideBar.Controls.Add(panel7);
+            sideBar.Controls.Add(panel5);
+            sideBar.Controls.Add(panel6);
+            sideBar.Controls.Add(panel4);
             sideBar.Dock = DockStyle.Left;
             sideBar.Location = new Point(0, 0);
             sideBar.MaximumSize = new Size(245, 773);
@@ -361,34 +362,12 @@
             sideBar.Size = new Size(238, 773);
             sideBar.TabIndex = 5;
             // 
-            // panel6
-            // 
-            panel6.Controls.Add(userManageLabel);
-            panel6.Location = new Point(3, 414);
-            panel6.Name = "panel6";
-            panel6.Size = new Size(230, 70);
-            panel6.TabIndex = 10;
-            // 
-            // userManageLabel
-            // 
-            userManageLabel.FlatStyle = FlatStyle.Flat;
-            userManageLabel.Font = new Font("Segoe UI Black", 9F, FontStyle.Bold | FontStyle.Italic);
-            userManageLabel.ForeColor = Color.Transparent;
-            userManageLabel.Location = new Point(-3, 0);
-            userManageLabel.Name = "userManageLabel";
-            userManageLabel.Size = new Size(233, 67);
-            userManageLabel.TabIndex = 7;
-            userManageLabel.Text = "Users  Manager";
-            userManageLabel.TextAlign = ContentAlignment.MiddleLeft;
-            userManageLabel.UseVisualStyleBackColor = true;
-            userManageLabel.Click += userManageLabel_Click;
-            // 
             // panel11
             // 
             panel11.Controls.Add(panel12);
             panel11.Controls.Add(panel14);
-            panel11.Controls.Add(button10);
-            panel11.Location = new Point(3, 648);
+            panel11.Controls.Add(SearchButton);
+            panel11.Location = new Point(3, 338);
             panel11.Name = "panel11";
             panel11.Size = new Size(230, 73);
             panel11.TabIndex = 15;
@@ -457,24 +436,47 @@
             button9.TextAlign = ContentAlignment.MiddleLeft;
             button9.UseVisualStyleBackColor = true;
             // 
-            // button10
+            // SearchButton
             // 
-            button10.FlatStyle = FlatStyle.Flat;
-            button10.Font = new Font("Segoe UI Black", 9F, FontStyle.Bold | FontStyle.Italic);
-            button10.ForeColor = Color.Transparent;
-            button10.Location = new Point(-6, 0);
-            button10.Name = "button10";
-            button10.Size = new Size(236, 70);
-            button10.TabIndex = 7;
-            button10.Text = "Log Out";
-            button10.TextAlign = ContentAlignment.MiddleLeft;
-            button10.UseVisualStyleBackColor = true;
+            SearchButton.FlatStyle = FlatStyle.Flat;
+            SearchButton.Font = new Font("Segoe UI Black", 9F, FontStyle.Bold | FontStyle.Italic);
+            SearchButton.ForeColor = Color.Transparent;
+            SearchButton.Location = new Point(-6, 0);
+            SearchButton.Name = "SearchButton";
+            SearchButton.Size = new Size(236, 70);
+            SearchButton.TabIndex = 7;
+            SearchButton.Text = "Search";
+            SearchButton.TextAlign = ContentAlignment.MiddleLeft;
+            SearchButton.UseVisualStyleBackColor = true;
+            SearchButton.Click += SearchButton_Click;
+            // 
+            // panel6
+            // 
+            panel6.Controls.Add(userManageLabel);
+            panel6.Location = new Point(3, 575);
+            panel6.Name = "panel6";
+            panel6.Size = new Size(230, 70);
+            panel6.TabIndex = 10;
+            // 
+            // userManageLabel
+            // 
+            userManageLabel.FlatStyle = FlatStyle.Flat;
+            userManageLabel.Font = new Font("Segoe UI Black", 9F, FontStyle.Bold | FontStyle.Italic);
+            userManageLabel.ForeColor = Color.Transparent;
+            userManageLabel.Location = new Point(-3, 0);
+            userManageLabel.Name = "userManageLabel";
+            userManageLabel.Size = new Size(233, 67);
+            userManageLabel.TabIndex = 7;
+            userManageLabel.Text = "Users  Manager";
+            userManageLabel.TextAlign = ContentAlignment.MiddleLeft;
+            userManageLabel.UseVisualStyleBackColor = true;
+            userManageLabel.Click += userManageLabel_Click;
             // 
             // Form3
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1094, 726);
+            ClientSize = new Size(1094, 728);
             Controls.Add(flowLayoutPanel1);
             Controls.Add(sideBar);
             FormBorderStyle = FormBorderStyle.None;
@@ -493,11 +495,11 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)menuSidebar).EndInit();
             sideBar.ResumeLayout(false);
-            panel6.ResumeLayout(false);
             panel11.ResumeLayout(false);
             panel12.ResumeLayout(false);
             panel13.ResumeLayout(false);
             panel14.ResumeLayout(false);
+            panel6.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -510,7 +512,7 @@
         private Panel panel5;
         private Button button2;
         private Panel panel4;
-        private Button button3;
+        private Button updatebutton;
         private Panel panel3;
         private Button buttonRefrsh;
         private Panel panel2;
@@ -537,6 +539,6 @@
         private Button button8;
         private Panel panel14;
         private Button button9;
-        private Button button10;
+        private Button SearchButton;
     }
 }

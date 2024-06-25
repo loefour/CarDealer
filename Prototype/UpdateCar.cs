@@ -6,14 +6,11 @@ using System.Threading.Tasks;
 
 namespace Prototype
 {
-    internal class userDashBoardClass
+    internal class UpdateCar
     {
-
         public static string name;
         public static string image;
-        public static int count;
         public static int price;
-
 
     }
 }
