@@ -110,16 +110,17 @@
             // 
             // textBox1
             // 
-            textBox1.BorderStyle = BorderStyle.None;
+            textBox1.BackColor = Color.Silver;
+            textBox1.BorderStyle = BorderStyle.FixedSingle;
             textBox1.Location = new Point(3, 10);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(400, 20);
+            textBox1.Size = new Size(400, 27);
             textBox1.TabIndex = 8;
             textBox1.TextChanged += textBox1_TextChanged;
             // 
             // panel1
             // 
-            panel1.BackColor = Color.Black;
+            panel1.BackColor = Color.Transparent;
             panel1.Controls.Add(textBox1);
             panel1.Location = new Point(78, 36);
             panel1.Name = "panel1";
@@ -131,7 +132,7 @@
             containerResualt.AutoScroll = true;
             containerResualt.Location = new Point(78, 88);
             containerResualt.Name = "containerResualt";
-            containerResualt.Size = new Size(405, 0);
+            containerResualt.Size = new Size(410, 0);
             containerResualt.TabIndex = 10;
             // 
             // Search

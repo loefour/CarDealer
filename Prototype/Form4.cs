@@ -90,7 +90,6 @@ namespace Prototype
 
 
                     userDashBoardClass.image = carGeter.image;
-                    userDashBoardClass.count = clickCounter;
                     userDashBoardClass.name = carGeter.name;
 
 

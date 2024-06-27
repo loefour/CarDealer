@@ -102,8 +102,9 @@
             flowLayoutPanel1.Dock = DockStyle.Fill;
             flowLayoutPanel1.Location = new Point(238, 0);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(856, 728);
+            flowLayoutPanel1.Size = new Size(862, 728);
             flowLayoutPanel1.TabIndex = 6;
+            flowLayoutPanel1.Paint += flowLayoutPanel1_Paint;
             // 
             // panel7
             // 
@@ -184,11 +185,13 @@
             logOutButton.FlatStyle = FlatStyle.Flat;
             logOutButton.Font = new Font("Segoe UI Black", 9F, FontStyle.Bold | FontStyle.Italic);
             logOutButton.ForeColor = Color.Transparent;
-            logOutButton.Location = new Point(-6, 0);
+            logOutButton.Image = Properties.Resources.logout;
+            logOutButton.ImageAlign = ContentAlignment.MiddleLeft;
+            logOutButton.Location = new Point(2, 0);
             logOutButton.Name = "logOutButton";
-            logOutButton.Size = new Size(236, 70);
+            logOutButton.Size = new Size(228, 70);
             logOutButton.TabIndex = 7;
-            logOutButton.Text = "Log Out";
+            logOutButton.Text = "               Log Out";
             logOutButton.TextAlign = ContentAlignment.MiddleLeft;
             logOutButton.UseVisualStyleBackColor = true;
             logOutButton.Click += logOutButton_Click;
@@ -206,11 +209,13 @@
             button2.FlatStyle = FlatStyle.Flat;
             button2.Font = new Font("Segoe UI Black", 9F, FontStyle.Bold | FontStyle.Italic);
             button2.ForeColor = Color.Transparent;
-            button2.Location = new Point(-6, 0);
+            button2.Image = Properties.Resources.info;
+            button2.ImageAlign = ContentAlignment.MiddleLeft;
+            button2.Location = new Point(2, 0);
             button2.Name = "button2";
-            button2.Size = new Size(236, 67);
+            button2.Size = new Size(228, 67);
             button2.TabIndex = 7;
-            button2.Text = "About";
+            button2.Text = "               About";
             button2.TextAlign = ContentAlignment.MiddleLeft;
             button2.UseVisualStyleBackColor = true;
             // 
@@ -227,11 +232,13 @@
             updatebutton.FlatStyle = FlatStyle.Flat;
             updatebutton.Font = new Font("Segoe UI Black", 9F, FontStyle.Bold | FontStyle.Italic);
             updatebutton.ForeColor = Color.Transparent;
-            updatebutton.Location = new Point(-3, 0);
+            updatebutton.Image = Properties.Resources.system_update__1_;
+            updatebutton.ImageAlign = ContentAlignment.MiddleLeft;
+            updatebutton.Location = new Point(2, 0);
             updatebutton.Name = "updatebutton";
-            updatebutton.Size = new Size(233, 67);
+            updatebutton.Size = new Size(228, 67);
             updatebutton.TabIndex = 7;
-            updatebutton.Text = "Update";
+            updatebutton.Text = "              Update";
             updatebutton.TextAlign = ContentAlignment.MiddleLeft;
             updatebutton.UseVisualStyleBackColor = true;
             updatebutton.Click += button3_Click;
@@ -249,11 +256,13 @@
             buttonRefrsh.FlatStyle = FlatStyle.Flat;
             buttonRefrsh.Font = new Font("Segoe UI Black", 9F, FontStyle.Bold | FontStyle.Italic);
             buttonRefrsh.ForeColor = Color.Transparent;
-            buttonRefrsh.Location = new Point(-3, 0);
+            buttonRefrsh.Image = Properties.Resources.refresh1;
+            buttonRefrsh.ImageAlign = ContentAlignment.MiddleLeft;
+            buttonRefrsh.Location = new Point(2, 0);
             buttonRefrsh.Name = "buttonRefrsh";
-            buttonRefrsh.Size = new Size(233, 70);
+            buttonRefrsh.Size = new Size(228, 70);
             buttonRefrsh.TabIndex = 7;
-            buttonRefrsh.Text = "Refresh";
+            buttonRefrsh.Text = "               Refresh";
             buttonRefrsh.TextAlign = ContentAlignment.MiddleLeft;
             buttonRefrsh.UseVisualStyleBackColor = true;
             buttonRefrsh.Click += buttonRefrsh_Click;
@@ -271,11 +280,13 @@
             button1.FlatStyle = FlatStyle.Flat;
             button1.Font = new Font("Segoe UI Black", 9F, FontStyle.Bold | FontStyle.Italic);
             button1.ForeColor = Color.Transparent;
-            button1.Location = new Point(-3, 0);
+            button1.Image = Properties.Resources.dashboard__1___1_;
+            button1.ImageAlign = ContentAlignment.MiddleLeft;
+            button1.Location = new Point(2, 0);
             button1.Name = "button1";
-            button1.Size = new Size(233, 68);
+            button1.Size = new Size(228, 68);
             button1.TabIndex = 7;
-            button1.Text = "Dash  Boeard";
+            button1.Text = "               Dash  Boeard";
             button1.TextAlign = ContentAlignment.MiddleLeft;
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
@@ -296,15 +307,17 @@
             // 
             label4.Font = new Font("Segoe UI", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             label4.ForeColor = Color.White;
-            label4.Location = new Point(2, 133);
+            label4.Location = new Point(-3, 134);
             label4.Name = "label4";
             label4.Size = new Size(242, 35);
             label4.TabIndex = 1;
             label4.Text = "Info";
             label4.TextAlign = ContentAlignment.MiddleCenter;
+            label4.Click += label4_Click;
             // 
             // label2
             // 
+            label2.Font = new Font("Segoe UI", 9F, FontStyle.Bold | FontStyle.Italic);
             label2.ForeColor = Color.White;
             label2.Location = new Point(1, 113);
             label2.Name = "label2";
@@ -315,8 +328,9 @@
             // 
             // label1
             // 
+            label1.Font = new Font("Segoe UI", 9F, FontStyle.Bold | FontStyle.Italic);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(53, 93);
+            label1.Location = new Point(58, 93);
             label1.Name = "label1";
             label1.Size = new Size(133, 20);
             label1.TabIndex = 0;
@@ -325,7 +339,7 @@
             // 
             // pictureBox1
             // 
-            pictureBox1.Location = new Point(85, 22);
+            pictureBox1.Location = new Point(87, 22);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(71, 68);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -441,11 +455,13 @@
             SearchButton.FlatStyle = FlatStyle.Flat;
             SearchButton.Font = new Font("Segoe UI Black", 9F, FontStyle.Bold | FontStyle.Italic);
             SearchButton.ForeColor = Color.Transparent;
-            SearchButton.Location = new Point(-6, 0);
+            SearchButton.Image = Properties.Resources.search_interface_symbol;
+            SearchButton.ImageAlign = ContentAlignment.MiddleLeft;
+            SearchButton.Location = new Point(2, 0);
             SearchButton.Name = "SearchButton";
-            SearchButton.Size = new Size(236, 70);
+            SearchButton.Size = new Size(228, 70);
             SearchButton.TabIndex = 7;
-            SearchButton.Text = "Search";
+            SearchButton.Text = "               Search";
             SearchButton.TextAlign = ContentAlignment.MiddleLeft;
             SearchButton.UseVisualStyleBackColor = true;
             SearchButton.Click += SearchButton_Click;
@@ -463,11 +479,13 @@
             userManageLabel.FlatStyle = FlatStyle.Flat;
             userManageLabel.Font = new Font("Segoe UI Black", 9F, FontStyle.Bold | FontStyle.Italic);
             userManageLabel.ForeColor = Color.Transparent;
-            userManageLabel.Location = new Point(-3, 0);
+            userManageLabel.Image = Properties.Resources.management;
+            userManageLabel.ImageAlign = ContentAlignment.MiddleLeft;
+            userManageLabel.Location = new Point(2, 0);
             userManageLabel.Name = "userManageLabel";
-            userManageLabel.Size = new Size(233, 67);
+            userManageLabel.Size = new Size(228, 67);
             userManageLabel.TabIndex = 7;
-            userManageLabel.Text = "Users  Manager";
+            userManageLabel.Text = "              Users  Manager";
             userManageLabel.TextAlign = ContentAlignment.MiddleLeft;
             userManageLabel.UseVisualStyleBackColor = true;
             userManageLabel.Click += userManageLabel_Click;
@@ -476,11 +494,12 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1094, 728);
+            ClientSize = new Size(1100, 728);
             Controls.Add(flowLayoutPanel1);
             Controls.Add(sideBar);
             FormBorderStyle = FormBorderStyle.None;
             Name = "Form3";
+            Opacity = 0.985D;
             Text = "s";
             Load += Form3_Load;
             panel7.ResumeLayout(false);

@@ -129,6 +129,11 @@ namespace Prototype
 
         private void Form3_Load(object sender, EventArgs e)
         {
+            System.Drawing.Drawing2D.GraphicsPath gp = new System.Drawing.Drawing2D.GraphicsPath();
+            gp.AddEllipse(0, 0, pictureBox1.Width - 3, pictureBox1.Height - 3);
+            Region rg = new Region(gp);
+            pictureBox1.Region = rg;
+
 
 
             string query = "SELECT * FROM image_list";
@@ -211,13 +216,13 @@ namespace Prototype
                 }
             }
 
-            
+
 
             this.Hide();
             Debug.WriteLine("Slama mashty");
             Form3 newForm = new Form3();
             newForm.FormClosed += (s, args) => this.Close();
-            
+
 
             newForm.ShowDialog();
             Debug.WriteLine("khodahafez mashty");
@@ -241,7 +246,7 @@ namespace Prototype
             Debug.WriteLine("Slama mashty");
             Form2 newForm = new Form2();
             newForm.FormClosed += (s, args) => this.Close();
-          
+
 
             newForm.ShowDialog();
             Debug.WriteLine("khodahafez mashty");
@@ -261,10 +266,20 @@ namespace Prototype
         {
             this.Hide();
 
-            Search search = new Search();   
+            Search search = new Search();
             search.ShowDialog();
 
             this.Close();
+        }
+
+        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -45,6 +45,7 @@
             label6 = new Label();
             OpenEyeImage = new PictureBox();
             CloseEyeImage = new PictureBox();
+            label7 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)OpenEyeImage).BeginInit();
             ((System.ComponentModel.ISupportInitialize)CloseEyeImage).BeginInit();
@@ -56,7 +57,7 @@
             button1.FlatStyle = FlatStyle.Flat;
             button1.Font = new Font("Bauhaus 93", 9F);
             button1.ForeColor = Color.White;
-            button1.Location = new Point(71, 454);
+            button1.Location = new Point(69, 478);
             button1.Name = "button1";
             button1.Size = new Size(250, 29);
             button1.TabIndex = 13;
@@ -116,7 +117,7 @@
             label4.Cursor = Cursors.Hand;
             label4.Font = new Font("Bauhaus 93", 12F);
             label4.ForeColor = Color.FromArgb(71, 222, 217);
-            label4.Location = new Point(176, 506);
+            label4.Location = new Point(167, 525);
             label4.Name = "label4";
             label4.Size = new Size(57, 23);
             label4.TabIndex = 14;
@@ -219,12 +220,24 @@
             CloseEyeImage.TabStop = false;
             CloseEyeImage.Click += CloseEyeImage_Click_1;
             // 
+            // label7
+            // 
+            label7.ForeColor = Color.Red;
+            label7.Location = new Point(71, 437);
+            label7.Name = "label7";
+            label7.Size = new Size(248, 20);
+            label7.TabIndex = 22;
+            label7.Text = "label7";
+            label7.TextAlign = ContentAlignment.MiddleLeft;
+            label7.Visible = false;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(393, 581);
+            Controls.Add(label7);
             Controls.Add(OpenEyeImage);
             Controls.Add(CloseEyeImage);
             Controls.Add(label6);
@@ -271,5 +284,6 @@
         private Label label6;
         private PictureBox OpenEyeImage;
         private PictureBox CloseEyeImage;
+        private Label label7;
     }
 }

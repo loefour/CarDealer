@@ -47,7 +47,7 @@ namespace Prototype
             set { carimage.ImageLocation = value; }
         }
 
-        
+
 
         /*public event EventHandler ButtonClicked;
 
@@ -60,7 +60,7 @@ namespace Prototype
         private void carimage_Click(object sender, EventArgs e)
         {
 
-            
+
             carGeter.name = name;
             carGeter.info = info;
             carGeter.price = int.Parse(price, NumberStyles.Currency);
@@ -75,6 +75,11 @@ namespace Prototype
             form4.ShowDialog();
 
 
+        }
+
+        private void CarControl_Load(object sender, EventArgs e)
+        {
+           
         }
     }
 }

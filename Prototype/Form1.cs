@@ -33,85 +33,157 @@ namespace Prototype
             }
         }
 
+
+
         private void button1_Click(object sender, EventArgs e)
         {
 
             
+            
 
 
-            string username = textBox1.Text;
-            string email = textBox2.Text;
-            string password = textBox3.Text;
+            
 
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            if (textBox1.Text != "" && textBox2.Text != "" && textBox3.Text != "")
             {
-                connection.Open();
-                string createTableQuery = $"CREATE TABLE {username} (image VARCHAR(MAX), name VARCHAR(50), price VARCHAR(50), count VARCHAR(50))";
-                using (SqlCommand command = new SqlCommand(createTableQuery, connection))
+                if (textBox2.Text.Contains("@gmail.com"))
                 {
-                    Debug.WriteLine("Open Connction createTabel");
-                    int resualt = command.ExecuteNonQuery();
-                    if (resualt > 0)
+                    if (textBox3.Text.Length >= 6)
                     {
+                        if (textBox3.Text.Length <= 15)
+                        {
+                            int isUpper = textBox3.Text.Count(char.IsUpper);
+
+                            if (isUpper >= 2)
+                            {
+
+                                string username = textBox1.Text;
+                                string email = textBox2.Text;
+                                string password = textBox3.Text;
+
+                                using (SqlConnection connection = new SqlConnection(connectionString))
+                                {
+                                    connection.Open();
+                                    string createTableQuery = $"CREATE TABLE {username} (image VARCHAR(MAX), name VARCHAR(50), price VARCHAR(50), count VARCHAR(50))";
+                                    using (SqlCommand command = new SqlCommand(createTableQuery, connection))
+                                    {
+                                        Debug.WriteLine("Open Connction createTabel");
+                                        int resualt = command.ExecuteNonQuery();
+                                        if (resualt > 0)
+                                        {
 
 
-                        MessageBox.Show("Table 'Customer' created successfully!");
+                                            MessageBox.Show("Table 'Customer' created successfully!");
 
+                                        }
+
+                                    }
+                                }
+
+
+
+
+
+
+
+
+                                string query = "INSERT INTO loginapp (Username, Email, Password, Image, Vault) VALUES (@username, @email, @password, @image, @vault)";
+
+
+                                using (SqlConnection con = new SqlConnection(connectionString))
+                                using (SqlCommand cmd = new SqlCommand(query, con))
+                                {
+
+                                    int newVautl = 0;
+                                    cmd.Parameters.AddWithValue("@username", username);
+                                    cmd.Parameters.AddWithValue("@password", password);
+                                    cmd.Parameters.AddWithValue("@email", email);
+                                    cmd.Parameters.AddWithValue("@image", image);
+                                    cmd.Parameters.AddWithValue("@vault", newVautl);
+
+
+
+                                    con.Open();
+
+                                    int result = cmd.ExecuteNonQuery();
+
+                                    if (result > 0)
+                                    {
+                                        MessageBox.Show($"Registration successful {username}.");
+                                        if (image == "")
+                                        {
+                                            image = "C:\\Users\\Arian\\Downloads\\default-avatar-profile-icon-of-social-media-user-vector.jpg";
+                                        }
+
+                                        Class1.UserName = username;
+                                        Class1.UserPass = password;
+                                        Class1.UserEmail = email;
+                                        Class1.UserImage = image;
+
+
+                                        this.Hide();
+
+                                        Form3 form3 = new Form3();
+
+                                        form3.ShowDialog();
+
+                                        this.Close();
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("Registration failed. Please try again.");
+                                    }
+
+                                    con.Close();
+                                }
+                            }
+                            else
+                            {
+                                label7.Visible = true;
+
+                                label7.Text = "Your Password should contain 2 Upper Character";
+
+                            }
+                        }
+                        else
+                        {
+                            label7.Visible = true;
+
+                            label7.Text = "Your Password is to long";
+
+                        }
                     }
-
-                }
-            }
-
-
-            string query = "INSERT INTO loginapp (Username, Email, Password, Image, Vault) VALUES (@username, @email, @password, @image, @vault)";
-
-
-            using (SqlConnection con = new SqlConnection(connectionString))
-            using (SqlCommand cmd = new SqlCommand(query, con))
-            {
-
-                int newVautl = 0;
-                cmd.Parameters.AddWithValue("@username", username);
-                cmd.Parameters.AddWithValue("@password", password);
-                cmd.Parameters.AddWithValue("@email", email);
-                cmd.Parameters.AddWithValue("@image", image);
-                cmd.Parameters.AddWithValue("@vault", newVautl);
-
-
-
-                con.Open();
-
-                int result = cmd.ExecuteNonQuery();
-
-                if (result > 0)
-                {
-                    MessageBox.Show($"Registration successful {username}.");
-                    if(image == "")
+                    else
                     {
-                        image = "C:\\Users\\Arian\\Downloads\\default-avatar-profile-icon-of-social-media-user-vector.jpg";
+                        label7.Visible = true;
+
+
+                        label7.Text = "Your Password is to weak";
                     }
-
-                    Class1.UserName = username;
-                    Class1.UserPass = password;
-                    Class1.UserEmail = email;
-                    Class1.UserImage = image;
-
-
-                    this.Hide();
-
-                    Form3 form3 = new Form3();
-
-                    form3.ShowDialog();
-
-                    this.Close();
                 }
                 else
                 {
-                    MessageBox.Show("Registration failed. Please try again.");
-                }
+                    label7.Visible = true;
 
-                con.Close();
+
+                    label7.Text = "Your Gmail Info is not valid";
+
+                }
             }
+            else
+            {
+                label7.Visible = true;
+
+              
+                label7.Text = "Please fill the form";
+            }
+
+
+
+            
+
+
+            
 
 
 
