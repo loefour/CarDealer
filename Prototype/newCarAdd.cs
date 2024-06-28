@@ -30,7 +30,10 @@ namespace Prototype
 
         private void newCarAdd_Load(object sender, EventArgs e)
         {
-
+            System.Drawing.Drawing2D.GraphicsPath gp = new System.Drawing.Drawing2D.GraphicsPath();
+            gp.AddEllipse(0, 0, carImage.Width - 3, carImage.Height - 3);
+            Region rg = new Region(gp);
+            carImage.Region = rg;
         }
 
         public string image = "";
@@ -51,79 +54,85 @@ namespace Prototype
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string query = "INSERT INTO image_list (Name, Info, Price, Image) VALUES (@name, @info, @price, @image)";
-
-
-            using (SqlConnection con = new SqlConnection(connectionString))
-            using (SqlCommand cmd = new SqlCommand(query, con))
+            DialogResult dialogResult = MessageBox.Show($"Are you sure you want Add {nameTexBox.Text} ?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dialogResult == DialogResult.Yes)
             {
+                string query = "INSERT INTO image_list (Name, Info, Price, Image) VALUES (@name, @info, @price, @image)";
 
-                cmd.Parameters.AddWithValue("@name", nameTexBox.Text);
-                cmd.Parameters.AddWithValue("@info", infoTextBox.Text);
-                cmd.Parameters.AddWithValue("@price", priceTextBox.Text);
-                cmd.Parameters.AddWithValue("@image", image);
 
-                
-
-                try
+                using (SqlConnection con = new SqlConnection(connectionString))
+                using (SqlCommand cmd = new SqlCommand(query, con))
                 {
 
-                    if (string.IsNullOrEmpty(image))
+                    cmd.Parameters.AddWithValue("@name", nameTexBox.Text);
+                    cmd.Parameters.AddWithValue("@info", infoTextBox.Text);
+                    cmd.Parameters.AddWithValue("@price", priceTextBox.Text);
+                    cmd.Parameters.AddWithValue("@image", image);
 
+
+
+                    try
                     {
-                        MessageBox.Show("Please Enter Valid Value");
-                    }
-                    else if (string.IsNullOrEmpty(nameTexBox.Text))
 
-                    {
-                        MessageBox.Show("Please Enter Valid Value");
-                    }
+                        if (string.IsNullOrEmpty(image))
 
-                    else if (string.IsNullOrEmpty(infoTextBox.Text))
-
-                    {
-                        MessageBox.Show("Please Enter Valid Value");
-                    }
-
-                    else if (string.IsNullOrEmpty(priceTextBox.Text))
-
-                    {
-                        MessageBox.Show("Please Enter Valid Value");
-                    }
-
-                    else
-                    {
-                        con.Open();
-                        int result = cmd.ExecuteNonQuery();
-
-                        if (result > 0)
                         {
-                            MessageBox.Show($"Registration successful {Name}.");
-                            this.Close();
+                            MessageBox.Show("Please Enter Valid Value");
                         }
+                        else if (string.IsNullOrEmpty(nameTexBox.Text))
+
+                        {
+                            MessageBox.Show("Please Enter Valid Value");
+                        }
+
+                        else if (string.IsNullOrEmpty(infoTextBox.Text))
+
+                        {
+                            MessageBox.Show("Please Enter Valid Value");
+                        }
+
+                        else if (string.IsNullOrEmpty(priceTextBox.Text))
+
+                        {
+                            MessageBox.Show("Please Enter Valid Value");
+                        }
+
+                        else
+                        {
+                            con.Open();
+                            int result = cmd.ExecuteNonQuery();
+
+                            if (result > 0)
+                            {
+                                MessageBox.Show($"Registration successful {Name}.");
+                                this.Close();
+                            }
+                        }
+
+
+
+
+
+                    }
+                    catch (FormatException)
+                    {
+                        MessageBox.Show("Invalid input. Please enter a valid integer.");
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+
                     }
 
-                    
-                   
-                    
+
+
+
+
 
                 }
-                catch (FormatException)
-                {
-                    MessageBox.Show("Invalid input. Please enter a valid integer.");
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-
-                }
-
-                
-
-
-                
-
             }
+
+                
 
         }
 
@@ -137,6 +146,14 @@ namespace Prototype
 
         }
 
-        
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+
+            Form3 form3 = new Form3();  
+            form3.ShowDialog();
+
+            this.Close();
+        }
     }
 }

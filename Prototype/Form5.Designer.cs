@@ -30,18 +30,32 @@
         {
             components = new System.ComponentModel.Container();
             flowLayoutPanel1 = new FlowLayoutPanel();
+            button1 = new Button();
             imageList1 = new ImageList(components);
             SuspendLayout();
             // 
             // flowLayoutPanel1
             // 
             flowLayoutPanel1.AutoScroll = true;
-            flowLayoutPanel1.BackColor = Color.FromArgb(34, 40, 45);
-            flowLayoutPanel1.Dock = DockStyle.Fill;
-            flowLayoutPanel1.Location = new Point(0, 0);
+            flowLayoutPanel1.BackColor = Color.Transparent;
+            flowLayoutPanel1.Dock = DockStyle.Bottom;
+            flowLayoutPanel1.Location = new Point(0, 46);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(502, 536);
+            flowLayoutPanel1.Size = new Size(520, 490);
             flowLayoutPanel1.TabIndex = 0;
+            // 
+            // button1
+            // 
+            button1.BackColor = Color.Transparent;
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.ForeColor = Color.FromArgb(213, 214, 215);
+            button1.Image = Properties.Resources.cross__1_;
+            button1.Location = new Point(0, 2);
+            button1.Name = "button1";
+            button1.Size = new Size(39, 36);
+            button1.TabIndex = 1;
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
             // imageList1
             // 
@@ -53,8 +67,13 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(502, 536);
+            BackColor = Color.FromArgb(34, 40, 45);
+            BackgroundImage = Properties.Resources.gradient__11_3;
+            BackgroundImageLayout = ImageLayout.Stretch;
+            ClientSize = new Size(520, 536);
+            Controls.Add(button1);
             Controls.Add(flowLayoutPanel1);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "Form5";
             Text = "Form5";
             Load += Form5_Load;
@@ -65,5 +84,6 @@
 
         private FlowLayoutPanel flowLayoutPanel1;
         private ImageList imageList1;
+        private Button button1;
     }
 }

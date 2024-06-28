@@ -41,6 +41,7 @@
             panel2 = new Panel();
             CloseEyeImage = new PictureBox();
             OpenEyeImage = new PictureBox();
+            button3 = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
@@ -96,7 +97,7 @@
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(65, 84);
+            pictureBox1.Location = new Point(62, 52);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(287, 200);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -109,7 +110,7 @@
             label4.BackColor = SystemColors.Window;
             label4.Font = new Font("Broadway", 22.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label4.ForeColor = Color.FromArgb(71, 222, 217);
-            label4.Location = new Point(135, 21);
+            label4.Location = new Point(135, 265);
             label4.Name = "label4";
             label4.Size = new Size(138, 42);
             label4.TabIndex = 9;
@@ -175,12 +176,26 @@
             OpenEyeImage.TabStop = false;
             OpenEyeImage.Click += OpenEyeImage_Click;
             // 
+            // button3
+            // 
+            button3.BackColor = Color.Transparent;
+            button3.FlatStyle = FlatStyle.Flat;
+            button3.ForeColor = Color.White;
+            button3.Image = Properties.Resources.cross__1_;
+            button3.Location = new Point(-1, -1);
+            button3.Name = "button3";
+            button3.Size = new Size(40, 43);
+            button3.TabIndex = 24;
+            button3.UseVisualStyleBackColor = false;
+            button3.Click += button3_Click;
+            // 
             // Form2
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(411, 628);
+            Controls.Add(button3);
             Controls.Add(OpenEyeImage);
             Controls.Add(CloseEyeImage);
             Controls.Add(panel2);
@@ -223,5 +238,6 @@
         private Panel panel2;
         private PictureBox CloseEyeImage;
         private PictureBox OpenEyeImage;
+        private Button button3;
     }
 }

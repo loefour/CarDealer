@@ -13,6 +13,7 @@ using System.Xml.Linq;
 using Microsoft.Data.SqlClient;
 using System.Collections;
 using System.Reflection;
+using System.Globalization;
 
 namespace Prototype
 {
@@ -47,17 +48,22 @@ namespace Prototype
 
 
             pictureBox1.ImageLocation = Class1.UserImage;
+            Debug.WriteLine(Class1.UserAdmin);
             /* Debug.WriteLine(Class1.UserImage + "Hello World");*/
 
             if (Class1.UserAdmin == "administrator")
             {
                 userManageLabel.Enabled = true;
                 updatebutton.Enabled = true;
+                userManageLabel.Visible = true;
+                updatebutton.Visible = true;
             }
             else if (Class1.UserAdmin == "admin")
             {
                 userManageLabel.Enabled = true;
                 updatebutton.Enabled = false;
+                userManageLabel.Enabled = true;
+                updatebutton.Visible = false;
                 updatebutton.Hide();
 
 
@@ -66,6 +72,8 @@ namespace Prototype
             {
                 userManageLabel.Enabled = false;
                 updatebutton.Enabled = false;
+                userManageLabel.Visible = false;
+                updatebutton.Visible = false;
                 updatebutton.Hide();
                 userManageLabel.Hide();
             }
@@ -189,18 +197,21 @@ namespace Prototype
 
         private void buttonRefrsh_Click(object sender, EventArgs e)
         {
-            string query = "SELECT * FROM loginapp";
+            string query = "SELECT * FROM loginapp WHERE Username = @username";
 
 
 
             using (SqlConnection conn = new SqlConnection(connectionString))
             using (SqlCommand cmd = new SqlCommand(query, conn))
             {
+                cmd.Parameters.AddWithValue("@username", Class1.UserName);
+                Debug.WriteLine(Class1.UserName);
                 conn.Open();
                 SqlDataReader rdr = cmd.ExecuteReader();
                 if (rdr.Read())
                 {
                     string newVualt = rdr["vault"].ToString();
+                    Debug.WriteLine(newVualt);
                     int isZero = int.Parse(newVualt);
                     if (isZero <= 0)
                     {
@@ -215,6 +226,23 @@ namespace Prototype
                     label4.Text = "$" + newVualt;
                 }
             }
+
+
+            /*  string query3 = "UPDATE loginapp SET Vault = @vault WHERE Username = @username";
+
+              using (SqlConnection conn = new SqlConnection(connectionString))
+              using (SqlCommand cmd = new SqlCommand(query3, conn))
+              {
+
+                  cmd.Parameters.AddWithValue("@vault", Class1.UserVault);
+                  cmd.Parameters.AddWithValue("@username", Class1.UserName);
+                  Debug.WriteLine(Class1.UserVault);
+                  label4.Text = Class1.UserVault.ToString();
+
+
+                  conn.Open();
+                  cmd.ExecuteReader();
+              }*/
 
 
 
@@ -242,15 +270,21 @@ namespace Prototype
 
         private void logOutButton_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            Debug.WriteLine("Slama mashty");
-            Form2 newForm = new Form2();
-            newForm.FormClosed += (s, args) => this.Close();
+            DialogResult dialogResult = MessageBox.Show($"Are you sure you want to LogOut?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dialogResult == DialogResult.Yes)
+            {
+                this.Hide();
+                Debug.WriteLine("Slama mashty");
+                Form2 newForm = new Form2();
+                newForm.FormClosed += (s, args) => this.Close();
 
 
-            newForm.ShowDialog();
-            Debug.WriteLine("khodahafez mashty");
-            this.Close();
+                newForm.ShowDialog();
+                Debug.WriteLine("khodahafez mashty");
+                this.Close();
+            }
+
+
 
         }
 
@@ -280,6 +314,156 @@ namespace Prototype
         private void label4_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void sideBar_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+
+        private void button1_MouseHover(object sender, EventArgs e)
+        {
+            if (Class1.UserAdmin == "administrator" || Class1.UserAdmin == "admin")
+            {
+                button1.BackColor = Color.FromArgb(255, 192, 128);
+                button1.ForeColor = Color.White;
+            }
+        }
+
+        private void button1_MouseLeave(object sender, EventArgs e)
+        {
+            if (Class1.UserAdmin == "administrator" || Class1.UserAdmin == "admin")
+            {
+                button1.BackColor = Color.Transparent;
+                button1.ForeColor = Color.White;
+            }
+        }
+
+        private void buttonRefrsh_MouseHover(object sender, EventArgs e)
+        {
+            if (Class1.UserAdmin == "administrator" || Class1.UserAdmin == "admin")
+            {
+                buttonRefrsh.BackColor = Color.FromArgb(255, 192, 128);
+                buttonRefrsh.ForeColor = Color.White;
+            }
+        }
+
+        private void buttonRefrsh_MouseLeave(object sender, EventArgs e)
+        {
+            if (Class1.UserAdmin == "administrator" || Class1.UserAdmin == "admin")
+            {
+                buttonRefrsh.BackColor = Color.Transparent;
+                buttonRefrsh.ForeColor = Color.White;
+            }
+        }
+
+        private void SearchButton_MouseHover(object sender, EventArgs e)
+        {
+            if (Class1.UserAdmin == "administrator" || Class1.UserAdmin == "admin")
+            {
+                SearchButton.BackColor = Color.FromArgb(255, 192, 128);
+                SearchButton.ForeColor = Color.White;
+            }
+        }
+
+        private void SearchButton_MouseLeave(object sender, EventArgs e)
+        {
+            if (Class1.UserAdmin == "administrator" || Class1.UserAdmin == "admin")
+            {
+                SearchButton.BackColor = Color.Transparent;
+                SearchButton.ForeColor = Color.White;
+            }
+        }
+
+        private void logOutButton_MouseHover(object sender, EventArgs e)
+        {
+            if (Class1.UserAdmin == "administrator" || Class1.UserAdmin == "admin")
+            {
+                logOutButton.BackColor = Color.FromArgb(255, 192, 128);
+                logOutButton.ForeColor = Color.White;
+            }
+        }
+
+        private void logOutButton_MouseLeave(object sender, EventArgs e)
+        {
+            if (Class1.UserAdmin == "administrator" || Class1.UserAdmin == "admin")
+            {
+                logOutButton.BackColor = Color.Transparent;
+                logOutButton.ForeColor = Color.White;
+            }
+        }
+
+        private void button2_MouseHover(object sender, EventArgs e)
+        {
+            if (Class1.UserAdmin == "administrator" || Class1.UserAdmin == "admin")
+            {
+                button2.BackColor = Color.FromArgb(255, 192, 128);
+                button2.ForeColor = Color.White;
+            }
+        }
+
+        private void button2_MouseLeave(object sender, EventArgs e)
+        {
+            if (Class1.UserAdmin == "administrator" || Class1.UserAdmin == "admin")
+            {
+                button2.BackColor = Color.Transparent;
+                button2.ForeColor = Color.White;
+            }
+        }
+
+        private void userManageLabel_MouseHover(object sender, EventArgs e)
+        {
+            if (Class1.UserAdmin == "administrator" || Class1.UserAdmin == "admin")
+            {
+                userManageLabel.BackColor = Color.FromArgb(255, 192, 128);
+                userManageLabel.ForeColor = Color.White;
+            }
+        }
+
+        private void userManageLabel_MouseLeave(object sender, EventArgs e)
+        {
+            if (Class1.UserAdmin == "administrator" || Class1.UserAdmin == "admin")
+            {
+                userManageLabel.BackColor = Color.Transparent;
+                userManageLabel.ForeColor = Color.White;
+            }
+        }
+
+        private void updatebutton_MouseHover(object sender, EventArgs e)
+        {
+            if (Class1.UserAdmin == "administrator" || Class1.UserAdmin == "admin")
+            {
+                updatebutton.BackColor = Color.FromArgb(255, 192, 128);
+                updatebutton.ForeColor = Color.White;
+            }
+        }
+
+        private void updatebutton_MouseLeave(object sender, EventArgs e)
+        {
+            if (Class1.UserAdmin == "administrator" || Class1.UserAdmin == "admin")
+            {
+                updatebutton.BackColor = Color.Transparent;
+                updatebutton.ForeColor = Color.White;
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_TextChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show($"Are you sure you want to Close The App?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dialogResult == DialogResult.Yes)
+            {
+                this.Close();
+            }
         }
     }
 }

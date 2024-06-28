@@ -30,37 +30,56 @@
         {
             flowLayoutPanel1 = new FlowLayoutPanel();
             CarAdderButton = new Button();
+            button1 = new Button();
             SuspendLayout();
             // 
             // flowLayoutPanel1
             // 
             flowLayoutPanel1.AutoScroll = true;
-            flowLayoutPanel1.BackColor = Color.FromArgb(63, 119, 132);
+            flowLayoutPanel1.BackColor = Color.LightGray;
             flowLayoutPanel1.ForeColor = SystemColors.ActiveCaptionText;
-            flowLayoutPanel1.Location = new Point(68, 12);
+            flowLayoutPanel1.Location = new Point(0, 45);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Padding = new Padding(20, 0, 0, 0);
-            flowLayoutPanel1.Size = new Size(928, 500);
+            flowLayoutPanel1.Padding = new Padding(10, 0, 10, 0);
+            flowLayoutPanel1.Size = new Size(541, 417);
             flowLayoutPanel1.TabIndex = 0;
             flowLayoutPanel1.Paint += flowLayoutPanel1_Paint;
             // 
             // CarAdderButton
             // 
-            CarAdderButton.Location = new Point(412, 558);
+            CarAdderButton.BackgroundImage = Properties.Resources.gradient__11_2;
+            CarAdderButton.BackgroundImageLayout = ImageLayout.Stretch;
+            CarAdderButton.Location = new Point(0, 461);
             CarAdderButton.Name = "CarAdderButton";
-            CarAdderButton.Size = new Size(246, 63);
+            CarAdderButton.Size = new Size(541, 76);
             CarAdderButton.TabIndex = 0;
             CarAdderButton.Text = "AddCar";
             CarAdderButton.UseVisualStyleBackColor = true;
             CarAdderButton.Click += CarAdderButton_Click;
             // 
+            // button1
+            // 
+            button1.BackColor = Color.Transparent;
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.ForeColor = Color.FromArgb(213, 214, 215);
+            button1.Image = Properties.Resources.cross__1_;
+            button1.Location = new Point(0, 3);
+            button1.Name = "button1";
+            button1.Size = new Size(39, 36);
+            button1.TabIndex = 12;
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
+            // 
             // update
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1103, 684);
+            BackColor = Color.LightGray;
+            ClientSize = new Size(540, 536);
+            Controls.Add(button1);
             Controls.Add(CarAdderButton);
             Controls.Add(flowLayoutPanel1);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "update";
             Text = "update";
             Load += update_Load;
@@ -71,5 +90,6 @@
 
         private FlowLayoutPanel flowLayoutPanel1;
         private Button CarAdderButton;
+        private Button button1;
     }
 }

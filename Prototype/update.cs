@@ -63,7 +63,7 @@ namespace Prototype
                         {
                             string name = reader["name"].ToString();
                             string image = reader["image"].ToString();
-                            string price = reader["price"].ToString();
+                            string price = "$" + reader["price"].ToString();
                             Debug.WriteLine(price);
 
 
@@ -86,6 +86,11 @@ namespace Prototype
 
             newCar.ShowDialog();
 
+            this.Close();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
             this.Close();
         }
     }

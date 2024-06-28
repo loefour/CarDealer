@@ -103,7 +103,7 @@ namespace Prototype
 
             if (Class1.UserAdmin == "administrator")
             {
-                if(usertype== "administrator")
+                if (usertype == "administrator")
                 {
                     deleteUser.Enabled = false;
                     deleteUser.Visible = false;
@@ -113,11 +113,11 @@ namespace Prototype
             }
 
 
-            else if(Class1.UserAdmin == "admin")
+            else if (Class1.UserAdmin == "admin")
             {
-               deleteUser.Enabled = false;
-               deleteUser.Visible = false;
-               if(usertype == "admin" || usertype == "administrator")
+                deleteUser.Enabled = false;
+                deleteUser.Visible = false;
+                if (usertype == "admin" || usertype == "administrator")
                 {
                     LevelUpButton.Enabled = false;
                     LevelUpButton.Visible = false;
@@ -133,8 +133,9 @@ namespace Prototype
 
         private void deleteUser_Click(object sender, EventArgs e)
         {
-            
-
+            DialogResult dialogResult = MessageBox.Show($"Are you sure you want to Delete  User {name}?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dialogResult == DialogResult.Yes)
+            {
                 string query3 = "DELETE FROM loginapp WHERE Username = @username";
 
 
@@ -153,6 +154,9 @@ namespace Prototype
                         Console.WriteLine($"Error: {ex.Message}");
                     }
                 }
+            }
+
+                
         }
     }
 }

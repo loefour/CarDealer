@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,22 +24,38 @@ namespace Prototype
         }
 
 
-        private void CreateUserControll(string name, string image, string price, string count)
+        private void CreateUserControll(string name, string image, string price, string info)
         {
             DashBoardControl control = new DashBoardControl();
             {
                 control.name = name;
                 control.image = image;
                 control.price = price;
-                control.count = count;
+                control.info = info;
+
+
+
             }
 
             flowLayoutPanel1.Controls.Add(control);
 
         }
 
+        public int spend = 0;
+        public string totalSpend;
+
         private void DashBoard_Load(object sender, EventArgs e)
         {
+
+            System.Drawing.Drawing2D.GraphicsPath gp = new System.Drawing.Drawing2D.GraphicsPath();
+            gp.AddEllipse(0, 0, userImage.Width - 3, userImage.Height - 3);
+            Region rg = new Region(gp);
+            userImage.Region = rg;
+
+            flowLayoutPanel1.HorizontalScroll.Visible = false; // Hide horizontal scroll bar
+            flowLayoutPanel1.VerticalScroll.Visible = false;
+
+
             nameLabel.Text = Class1.UserName;
             emailLabel.Text = Class1.UserEmail;
             userImage.ImageLocation = Class1.UserImage;
@@ -46,8 +63,6 @@ namespace Prototype
 
 
             string query = $"SELECT * FROM {Class1.UserName}";
-
-            MessageBox.Show($"DashBoard {Class1.UserName}");
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -60,12 +75,15 @@ namespace Prototype
                         {
                             string name = reader["name"].ToString();
                             string image = reader["image"].ToString();
-                            string price = reader["price"].ToString();
-                            string count = reader["count"].ToString();
+                            string price = "$" + reader["price"].ToString();
+                            string info = reader["info"].ToString();
 
 
+                            spend = spend + int.Parse(price, NumberStyles.Currency);
 
-                            CreateUserControll(name, image, price, count);
+                            totalSpend = spend.ToString();
+
+                            CreateUserControll(name, image, price, info);
 
                         }
 
@@ -75,7 +93,7 @@ namespace Prototype
                 }
             }
 
-
+            spendLabel.Text = "$" + totalSpend;
 
         }
 
@@ -88,6 +106,41 @@ namespace Prototype
             newform.ShowDialog();
 
             this.Close();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void emailLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void nameLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+
+        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+            flowLayoutPanel1.AutoScroll = true;
+               // Hide vertical scroll bar
+        }
+
+        private void DashBoard_Click(object sender, EventArgs e)
+        {
+            flowLayoutPanel1.AutoScroll = false;
+               // Hide vertical scroll bar
+
         }
     }
 }

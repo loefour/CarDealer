@@ -49,6 +49,7 @@
             panel2 = new Panel();
             button1 = new Button();
             panel1 = new Panel();
+            button3 = new Button();
             label4 = new Label();
             label2 = new Label();
             label1 = new Label();
@@ -98,11 +99,11 @@
             // flowLayoutPanel1
             // 
             flowLayoutPanel1.AutoScroll = true;
-            flowLayoutPanel1.BackColor = Color.FromArgb(63, 119, 132);
+            flowLayoutPanel1.BackColor = Color.Transparent;
             flowLayoutPanel1.Dock = DockStyle.Fill;
             flowLayoutPanel1.Location = new Point(238, 0);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(862, 728);
+            flowLayoutPanel1.Size = new Size(892, 728);
             flowLayoutPanel1.TabIndex = 6;
             flowLayoutPanel1.Paint += flowLayoutPanel1_Paint;
             // 
@@ -182,6 +183,7 @@
             // 
             // logOutButton
             // 
+            logOutButton.BackColor = Color.Transparent;
             logOutButton.FlatStyle = FlatStyle.Flat;
             logOutButton.Font = new Font("Segoe UI Black", 9F, FontStyle.Bold | FontStyle.Italic);
             logOutButton.ForeColor = Color.Transparent;
@@ -193,8 +195,10 @@
             logOutButton.TabIndex = 7;
             logOutButton.Text = "               Log Out";
             logOutButton.TextAlign = ContentAlignment.MiddleLeft;
-            logOutButton.UseVisualStyleBackColor = true;
+            logOutButton.UseVisualStyleBackColor = false;
             logOutButton.Click += logOutButton_Click;
+            logOutButton.MouseLeave += logOutButton_MouseLeave;
+            logOutButton.MouseHover += logOutButton_MouseHover;
             // 
             // panel5
             // 
@@ -206,6 +210,7 @@
             // 
             // button2
             // 
+            button2.BackColor = Color.Transparent;
             button2.FlatStyle = FlatStyle.Flat;
             button2.Font = new Font("Segoe UI Black", 9F, FontStyle.Bold | FontStyle.Italic);
             button2.ForeColor = Color.Transparent;
@@ -217,7 +222,10 @@
             button2.TabIndex = 7;
             button2.Text = "               About";
             button2.TextAlign = ContentAlignment.MiddleLeft;
-            button2.UseVisualStyleBackColor = true;
+            button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
+            button2.MouseLeave += button2_MouseLeave;
+            button2.MouseHover += button2_MouseHover;
             // 
             // panel4
             // 
@@ -229,6 +237,8 @@
             // 
             // updatebutton
             // 
+            updatebutton.BackColor = Color.Transparent;
+            updatebutton.Enabled = false;
             updatebutton.FlatStyle = FlatStyle.Flat;
             updatebutton.Font = new Font("Segoe UI Black", 9F, FontStyle.Bold | FontStyle.Italic);
             updatebutton.ForeColor = Color.Transparent;
@@ -240,8 +250,11 @@
             updatebutton.TabIndex = 7;
             updatebutton.Text = "              Update";
             updatebutton.TextAlign = ContentAlignment.MiddleLeft;
-            updatebutton.UseVisualStyleBackColor = true;
+            updatebutton.UseVisualStyleBackColor = false;
+            updatebutton.Visible = false;
             updatebutton.Click += button3_Click;
+            updatebutton.MouseLeave += updatebutton_MouseLeave;
+            updatebutton.MouseHover += updatebutton_MouseHover;
             // 
             // panel3
             // 
@@ -253,6 +266,7 @@
             // 
             // buttonRefrsh
             // 
+            buttonRefrsh.BackColor = Color.Transparent;
             buttonRefrsh.FlatStyle = FlatStyle.Flat;
             buttonRefrsh.Font = new Font("Segoe UI Black", 9F, FontStyle.Bold | FontStyle.Italic);
             buttonRefrsh.ForeColor = Color.Transparent;
@@ -264,11 +278,14 @@
             buttonRefrsh.TabIndex = 7;
             buttonRefrsh.Text = "               Refresh";
             buttonRefrsh.TextAlign = ContentAlignment.MiddleLeft;
-            buttonRefrsh.UseVisualStyleBackColor = true;
+            buttonRefrsh.UseVisualStyleBackColor = false;
             buttonRefrsh.Click += buttonRefrsh_Click;
+            buttonRefrsh.MouseLeave += buttonRefrsh_MouseLeave;
+            buttonRefrsh.MouseHover += buttonRefrsh_MouseHover;
             // 
             // panel2
             // 
+            panel2.BackColor = Color.Transparent;
             panel2.Controls.Add(button1);
             panel2.Location = new Point(3, 186);
             panel2.Name = "panel2";
@@ -277,6 +294,7 @@
             // 
             // button1
             // 
+            button1.BackColor = Color.Transparent;
             button1.FlatStyle = FlatStyle.Flat;
             button1.Font = new Font("Segoe UI Black", 9F, FontStyle.Bold | FontStyle.Italic);
             button1.ForeColor = Color.Transparent;
@@ -288,11 +306,15 @@
             button1.TabIndex = 7;
             button1.Text = "               Dash  Boeard";
             button1.TextAlign = ContentAlignment.MiddleLeft;
-            button1.UseVisualStyleBackColor = true;
+            button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
+            button1.MouseLeave += button1_MouseLeave;
+            button1.MouseHover += button1_MouseHover;
             // 
             // panel1
             // 
+            panel1.BackColor = Color.Transparent;
+            panel1.Controls.Add(button3);
             panel1.Controls.Add(label4);
             panel1.Controls.Add(label2);
             panel1.Controls.Add(label1);
@@ -300,8 +322,21 @@
             panel1.Controls.Add(menuSidebar);
             panel1.Location = new Point(3, 3);
             panel1.Name = "panel1";
-            panel1.Size = new Size(235, 177);
+            panel1.Size = new Size(230, 177);
             panel1.TabIndex = 0;
+            // 
+            // button3
+            // 
+            button3.BackColor = Color.Transparent;
+            button3.FlatStyle = FlatStyle.Flat;
+            button3.ForeColor = Color.FromArgb(210, 213, 213);
+            button3.Image = Properties.Resources.cross__1_;
+            button3.Location = new Point(-3, -3);
+            button3.Name = "button3";
+            button3.Size = new Size(40, 43);
+            button3.TabIndex = 21;
+            button3.UseVisualStyleBackColor = false;
+            button3.Click += button3_Click_1;
             // 
             // label4
             // 
@@ -313,6 +348,7 @@
             label4.TabIndex = 1;
             label4.Text = "Info";
             label4.TextAlign = ContentAlignment.MiddleCenter;
+            label4.TextChanged += label4_TextChanged;
             label4.Click += label4_Click;
             // 
             // label2
@@ -339,6 +375,7 @@
             // 
             // pictureBox1
             // 
+            pictureBox1.Image = Properties.Resources.default_avatar_profile_icon_of_social_media_user_vector;
             pictureBox1.Location = new Point(87, 22);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(71, 68);
@@ -349,7 +386,7 @@
             // menuSidebar
             // 
             menuSidebar.Image = Properties.Resources.menu__1_;
-            menuSidebar.Location = new Point(9, 22);
+            menuSidebar.Location = new Point(-3, 46);
             menuSidebar.Name = "menuSidebar";
             menuSidebar.Size = new Size(40, 35);
             menuSidebar.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -359,7 +396,7 @@
             // 
             // sideBar
             // 
-            sideBar.BackColor = Color.FromArgb(63, 119, 132);
+            sideBar.BackColor = Color.Transparent;
             sideBar.Controls.Add(panel1);
             sideBar.Controls.Add(panel2);
             sideBar.Controls.Add(panel3);
@@ -375,6 +412,7 @@
             sideBar.Name = "sideBar";
             sideBar.Size = new Size(238, 773);
             sideBar.TabIndex = 5;
+            sideBar.Paint += sideBar_Paint;
             // 
             // panel11
             // 
@@ -452,6 +490,7 @@
             // 
             // SearchButton
             // 
+            SearchButton.BackColor = Color.Transparent;
             SearchButton.FlatStyle = FlatStyle.Flat;
             SearchButton.Font = new Font("Segoe UI Black", 9F, FontStyle.Bold | FontStyle.Italic);
             SearchButton.ForeColor = Color.Transparent;
@@ -463,8 +502,10 @@
             SearchButton.TabIndex = 7;
             SearchButton.Text = "               Search";
             SearchButton.TextAlign = ContentAlignment.MiddleLeft;
-            SearchButton.UseVisualStyleBackColor = true;
+            SearchButton.UseVisualStyleBackColor = false;
             SearchButton.Click += SearchButton_Click;
+            SearchButton.MouseLeave += SearchButton_MouseLeave;
+            SearchButton.MouseHover += SearchButton_MouseHover;
             // 
             // panel6
             // 
@@ -476,6 +517,7 @@
             // 
             // userManageLabel
             // 
+            userManageLabel.BackColor = Color.Transparent;
             userManageLabel.FlatStyle = FlatStyle.Flat;
             userManageLabel.Font = new Font("Segoe UI Black", 9F, FontStyle.Bold | FontStyle.Italic);
             userManageLabel.ForeColor = Color.Transparent;
@@ -487,16 +529,21 @@
             userManageLabel.TabIndex = 7;
             userManageLabel.Text = "              Users  Manager";
             userManageLabel.TextAlign = ContentAlignment.MiddleLeft;
-            userManageLabel.UseVisualStyleBackColor = true;
+            userManageLabel.UseVisualStyleBackColor = false;
             userManageLabel.Click += userManageLabel_Click;
+            userManageLabel.MouseLeave += userManageLabel_MouseLeave;
+            userManageLabel.MouseHover += userManageLabel_MouseHover;
             // 
             // Form3
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1100, 728);
+            BackColor = Color.FromArgb(63, 119, 132);
+            BackgroundImageLayout = ImageLayout.Stretch;
+            ClientSize = new Size(1130, 728);
             Controls.Add(flowLayoutPanel1);
             Controls.Add(sideBar);
+            DoubleBuffered = true;
             FormBorderStyle = FormBorderStyle.None;
             Name = "Form3";
             Opacity = 0.985D;
@@ -559,5 +606,6 @@
         private Panel panel14;
         private Button button9;
         private Button SearchButton;
+        private Button button3;
     }
 }

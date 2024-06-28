@@ -25,6 +25,12 @@ namespace Prototype
 
         private void carPriceUpdate_Load(object sender, EventArgs e)
         {
+            System.Drawing.Drawing2D.GraphicsPath gp = new System.Drawing.Drawing2D.GraphicsPath();
+            gp.AddEllipse(0, 0, carImage.Width - 3, carImage.Height - 3);
+            Region rg = new Region(gp);
+            carImage.Region = rg;
+
+
             nameLabel.Text = UpdateCar.name;
             carImage.ImageLocation = UpdateCar.image;
             priceTextBox.Text = UpdateCar.price.ToString();
@@ -54,6 +60,11 @@ namespace Prototype
 
                 }
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

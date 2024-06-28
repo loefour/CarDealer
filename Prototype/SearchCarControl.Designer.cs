@@ -39,7 +39,8 @@
             // pricelabel
             // 
             pricelabel.AutoSize = true;
-            pricelabel.Location = new Point(196, 48);
+            pricelabel.BackColor = Color.Transparent;
+            pricelabel.Location = new Point(196, 49);
             pricelabel.Name = "pricelabel";
             pricelabel.Size = new Size(50, 20);
             pricelabel.TabIndex = 0;
@@ -48,7 +49,8 @@
             // nameLabel
             // 
             nameLabel.AutoSize = true;
-            nameLabel.Location = new Point(196, 21);
+            nameLabel.BackColor = Color.Transparent;
+            nameLabel.Location = new Point(196, 22);
             nameLabel.Name = "nameLabel";
             nameLabel.Size = new Size(50, 20);
             nameLabel.TabIndex = 1;
@@ -57,8 +59,9 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.ForeColor = Color.Gray;
-            label3.Location = new Point(140, 21);
+            label3.BackColor = Color.Transparent;
+            label3.ForeColor = Color.DimGray;
+            label3.Location = new Point(140, 22);
             label3.Name = "label3";
             label3.Size = new Size(56, 20);
             label3.TabIndex = 3;
@@ -67,8 +70,9 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.ForeColor = Color.Gray;
-            label4.Location = new Point(140, 48);
+            label4.BackColor = Color.Transparent;
+            label4.ForeColor = Color.DimGray;
+            label4.Location = new Point(140, 49);
             label4.Name = "label4";
             label4.Size = new Size(44, 20);
             label4.TabIndex = 2;
@@ -77,7 +81,7 @@
             // pictureBox1
             // 
             pictureBox1.Image = Properties.Resources.default_avatar_profile_icon_of_social_media_user_vector;
-            pictureBox1.Location = new Point(14, 12);
+            pictureBox1.Location = new Point(10, 11);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(65, 65);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -88,13 +92,15 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackgroundImageLayout = ImageLayout.Stretch;
             Controls.Add(pictureBox1);
             Controls.Add(label3);
             Controls.Add(label4);
             Controls.Add(nameLabel);
             Controls.Add(pricelabel);
+            DoubleBuffered = true;
             Name = "SearchCarControl";
-            Size = new Size(405, 87);
+            Size = new Size(400, 87);
             Load += SearchCarControl_Load;
             Click += SearchCarControl_Click;
             MouseLeave += SearchCarControl_MouseLeave;

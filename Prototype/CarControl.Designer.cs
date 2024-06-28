@@ -54,6 +54,7 @@
             // labelname
             // 
             labelname.AutoSize = true;
+            labelname.BackColor = Color.Transparent;
             labelname.Location = new Point(268, 20);
             labelname.Name = "labelname";
             labelname.Size = new Size(46, 20);
@@ -62,6 +63,7 @@
             // 
             // labelinfo
             // 
+            labelinfo.BackColor = Color.Transparent;
             labelinfo.Location = new Point(268, 60);
             labelinfo.Name = "labelinfo";
             labelinfo.Size = new Size(531, 31);
@@ -71,9 +73,11 @@
             // labelprice
             // 
             labelprice.AutoSize = true;
-            labelprice.Location = new Point(268, 108);
+            labelprice.BackColor = Color.Transparent;
+            labelprice.Font = new Font("Arial Black", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelprice.Location = new Point(267, 107);
             labelprice.Name = "labelprice";
-            labelprice.Size = new Size(42, 20);
+            labelprice.Size = new Size(62, 26);
             labelprice.TabIndex = 3;
             labelprice.Text = "price";
             // 
@@ -104,7 +108,8 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.ForeColor = Color.Gray;
+            label1.BackColor = Color.Transparent;
+            label1.ForeColor = Color.White;
             label1.Location = new Point(212, 20);
             label1.Name = "label1";
             label1.Size = new Size(56, 20);
@@ -114,7 +119,8 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.ForeColor = Color.Gray;
+            label2.BackColor = Color.Transparent;
+            label2.ForeColor = Color.White;
             label2.Location = new Point(212, 60);
             label2.Name = "label2";
             label2.Size = new Size(42, 20);
@@ -124,7 +130,8 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.ForeColor = Color.Gray;
+            label3.BackColor = Color.Transparent;
+            label3.ForeColor = Color.White;
             label3.Location = new Point(212, 108);
             label3.Name = "label3";
             label3.Size = new Size(48, 20);
@@ -136,6 +143,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.WhiteSmoke;
+            BackgroundImage = Properties.Resources.gradient__10_;
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);

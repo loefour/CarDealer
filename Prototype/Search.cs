@@ -15,7 +15,7 @@ namespace Prototype
 {
     public partial class Search : Form
     {
-       
+
 
 
         public string Carname;
@@ -41,11 +41,11 @@ namespace Prototype
             CarPicture.Region = rg;
 
 
-            if(lbname.Text == "label1")
+            if (lbname.Text == "label1")
             {
                 purchusButton.Visible = false;
             }
-            
+
 
         }
 
@@ -68,7 +68,7 @@ namespace Prototype
                 SearchCarControl ser = new SearchCarControl();
                 ser.search_Resualt(textBox1.Text);
                 loadDetails();
-                containerResualt.Height = containerResualt.Controls.Count * 100;
+                containerResualt.Height = containerResualt.Controls.Count * 105;
             }
             else
             {
@@ -99,103 +99,151 @@ namespace Prototype
 
         private void purchusButton_Click(object sender, EventArgs e)
         {
-            string query = "UPDATE loginapp SET Vault = @vault WHERE Username = @username";
-
-
-            string query2 = $"INSERT INTO {Class1.UserName} (Image, Name, Price) VALUES (@image, @name, @price)";
-
-
-            string query3 = "DELETE FROM image_list WHERE Name = @name";
-
-            DataSearch get = new DataSearch();
-            get.SelectedData(SearchCarControl.name);
-            string price = get.price;
-            int intPrice = int.Parse(price);
-
-
-            Debug.WriteLine("Price:" +  intPrice);
-            Debug.WriteLine("name:" + get.name);
-            Debug.WriteLine("Price:" + get.image);
-
-
-            using (SqlConnection conn = new SqlConnection(connectionString))
-            using (SqlCommand cmd = new SqlCommand(query, conn))
+            DialogResult dialogResult = MessageBox.Show($"Are you sure you want to Purchuse {lbname}?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dialogResult == DialogResult.Yes)
             {
-                int newBudget = Class1.UserVault;
+                string query = "UPDATE loginapp SET Vault = @vault WHERE Username = @username";
 
 
-                if (newBudget >= intPrice)
+                string query2 = $"INSERT INTO {Class1.UserName} (Image, Name, Price) VALUES (@image, @name, @price)";
+
+
+                string query3 = "DELETE FROM image_list WHERE Name = @name";
+
+                DataSearch get = new DataSearch();
+                get.SelectedData(SearchCarControl.name);
+                string price = get.price;
+                int intPrice = int.Parse(price);
+
+
+                Debug.WriteLine("Price:" + intPrice);
+                Debug.WriteLine("name:" + get.name);
+                Debug.WriteLine("Price:" + get.image);
+
+
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
-
-                    newBudget = Class1.UserVault - intPrice;
-                    Debug.WriteLine(newBudget);
-
-                    cmd.Parameters.AddWithValue("@vault", newBudget);
-                    cmd.Parameters.AddWithValue("@username", Class1.UserName);
+                    int newBudget = Class1.UserVault;
 
 
-                    conn.Open();
-                    SqlDataReader rdr = cmd.ExecuteReader();
-                    if (rdr.Read())
+                    if (newBudget >= intPrice)
                     {
-                        string newVualt = rdr["vault"].ToString();
-                    }
+
+                        newBudget = Class1.UserVault - intPrice;
+                        Debug.WriteLine(newBudget);
+
+                        cmd.Parameters.AddWithValue("@vault", newBudget);
+                        cmd.Parameters.AddWithValue("@username", Class1.UserName);
 
 
-                    conn.Close();
-
-
-                    using (SqlConnection con = new SqlConnection(connectionString))
-                    using (SqlCommand cd = new SqlCommand(query2, con))
-                    {
-                        cd.Parameters.AddWithValue("@name", get.name);
-                        cd.Parameters.AddWithValue("@image", get.image);
-                        cd.Parameters.AddWithValue("@price", intPrice);
-
-
-
-
-                        con.Open();
-                        cd.ExecuteNonQuery();
-
-
-                    }
-
-
-                    using (SqlConnection co = new SqlConnection(connectionString))
-                    using (SqlCommand deletcmd = new SqlCommand(query3, co))
-                    {
-                        deletcmd.Parameters.AddWithValue("@name", get.name);
-                        try
+                        conn.Open();
+                        SqlDataReader rdr = cmd.ExecuteReader();
+                        if (rdr.Read())
                         {
-                            co.Open();
-                            int rowsAffected = deletcmd.ExecuteNonQuery();
-                            Console.WriteLine($"Deleted {rowsAffected} row(s)!");
+                            string newVualt = rdr["vault"].ToString();
                         }
-                        catch (Exception ex)
+
+
+                        conn.Close();
+
+
+                        using (SqlConnection con = new SqlConnection(connectionString))
+                        using (SqlCommand cd = new SqlCommand(query2, con))
                         {
-                            Console.WriteLine($"Error: {ex.Message}");
+                            cd.Parameters.AddWithValue("@name", get.name);
+                            cd.Parameters.AddWithValue("@image", get.image);
+                            cd.Parameters.AddWithValue("@price", intPrice);
+
+
+
+
+                            con.Open();
+                            cd.ExecuteNonQuery();
+
+
+                        }
+
+
+                        using (SqlConnection co = new SqlConnection(connectionString))
+                        using (SqlCommand deletcmd = new SqlCommand(query3, co))
+                        {
+                            deletcmd.Parameters.AddWithValue("@name", get.name);
+                            try
+                            {
+                                co.Open();
+                                int rowsAffected = deletcmd.ExecuteNonQuery();
+                                Console.WriteLine($"Deleted {rowsAffected} row(s)!");
+                            }
+                            catch (Exception ex)
+                            {
+                                Console.WriteLine($"Error: {ex.Message}");
+                            }
                         }
                     }
+
+                    else
+                    {
+                        MessageBox.Show("to Expensive Or Car Your Selected Is out of sale");
+                    }
+
+
+
                 }
 
-                else
-                {
-                    MessageBox.Show("to Expensive Or Car Your Selected Is out of sale");
-                }
 
 
+                this.Hide();
 
+                Form3 form3 = new Form3();
+                form3.ShowDialog();
+
+                this.Close();
             }
 
+               
+        }
 
-
+        private void button1_Click(object sender, EventArgs e)
+        {
             this.Hide();
 
             Form3 form3 = new Form3();
-            form3.ShowDialog();
 
+            form3.ShowDialog();
             this.Close();
+        }
+
+        private void Search_MouseHover(object sender, EventArgs e)
+        {
+
+        }
+
+        private void purchusButton_MouseLeave(object sender, EventArgs e)
+        {
+            purchusButton.BackColor = Color.Transparent;
+            purchusButton.ForeColor = Color.White;
+
+
+        }
+
+        private void purchusButton_MouseHover(object sender, EventArgs e)
+        {
+            purchusButton.BackColor = Color.FromArgb(255, 192, 128);
+            purchusButton.ForeColor = Color.Black;
+
+        }
+
+        private void button1_MouseHover(object sender, EventArgs e)
+        {
+            button1.BackColor = Color.FromArgb(255, 192, 128);
+
+        }
+
+        private void button1_MouseLeave(object sender, EventArgs e)
+        {
+            button1.BackColor = Color.Transparent;
+
         }
     }
 }

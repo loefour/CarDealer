@@ -38,11 +38,11 @@ namespace Prototype
         private void button1_Click(object sender, EventArgs e)
         {
 
-            
-            
 
 
-            
+
+
+
 
             if (textBox1.Text != "" && textBox2.Text != "" && textBox3.Text != "")
             {
@@ -64,7 +64,7 @@ namespace Prototype
                                 using (SqlConnection connection = new SqlConnection(connectionString))
                                 {
                                     connection.Open();
-                                    string createTableQuery = $"CREATE TABLE {username} (image VARCHAR(MAX), name VARCHAR(50), price VARCHAR(50), count VARCHAR(50))";
+                                    string createTableQuery = $"CREATE TABLE {username} (image VARCHAR(MAX), name VARCHAR(50), price VARCHAR(50), info VARCHAR(MAX))";
                                     using (SqlCommand command = new SqlCommand(createTableQuery, connection))
                                     {
                                         Debug.WriteLine("Open Connction createTabel");
@@ -174,16 +174,16 @@ namespace Prototype
             {
                 label7.Visible = true;
 
-              
+
                 label7.Text = "Please fill the form";
             }
 
 
 
-            
 
 
-            
+
+
 
 
 
@@ -229,6 +229,15 @@ namespace Prototype
         private void Form1_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show($"Are you sure you want to Close The App?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dialogResult == DialogResult.Yes)
+            {
+                this.Close();
+            }
         }
     }
 }

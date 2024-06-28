@@ -33,7 +33,7 @@ namespace Prototype
 
         private void button1_Click(object sender, EventArgs e)
         {
-           
+
 
 
             string username = textBox4.Text;
@@ -86,7 +86,7 @@ namespace Prototype
                 }
                 else
                 {
-         
+
                     MessageBox.Show("Login failed. Please check your username and password.");
 
 
@@ -119,6 +119,15 @@ namespace Prototype
         private void Form2_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show($"Are you sure you want to Close The App?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dialogResult == DialogResult.Yes)
+            {
+                this.Close();
+            }
         }
     }
 }

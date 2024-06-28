@@ -48,13 +48,8 @@ namespace Prototype
         }
 
 
+        
 
-        /*public event EventHandler ButtonClicked;
-
-        private void OnButtonClicked()
-        {
-            ButtonClicked?.Invoke(this, EventArgs.Empty);
-        }*/
 
 
         private void carimage_Click(object sender, EventArgs e)
@@ -79,7 +74,12 @@ namespace Prototype
 
         private void CarControl_Load(object sender, EventArgs e)
         {
-           
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
