@@ -62,7 +62,7 @@ namespace Prototype
             {
                 userManageLabel.Enabled = true;
                 updatebutton.Enabled = false;
-                userManageLabel.Enabled = true;
+                userManageLabel.Visible = true;
                 updatebutton.Visible = false;
                 updatebutton.Hide();
 
@@ -451,6 +451,11 @@ namespace Prototype
         private void button2_Click(object sender, EventArgs e)
         {
 
+            About about = new About();
+
+            about.Show();
+
+            
         }
 
         private void label4_TextChanged(object sender, EventArgs e)

@@ -62,7 +62,10 @@ namespace Prototype
 
         private void DashBoardControl_Load(object sender, EventArgs e)
         {
-
+            if (num >= 1)
+            {
+                button1.Enabled = false;
+            }
         }
 
         private void DashBoardControl_Click(object sender, EventArgs e)
@@ -70,8 +73,14 @@ namespace Prototype
 
         }
 
+        public int num = 0;
         private void button1_Click(object sender, EventArgs e)
         {
+
+
+            
+
+
             DialogResult dialogResult = MessageBox.Show($"Are you sure you want to Sale Your {name}?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dialogResult == DialogResult.Yes)
             {
@@ -139,6 +148,8 @@ namespace Prototype
                 }
 
             }
+
+            num++;
         }
     }
 }

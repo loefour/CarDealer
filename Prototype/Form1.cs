@@ -73,7 +73,7 @@ namespace Prototype
                                         {
 
 
-                                            MessageBox.Show("Table 'Customer' created successfully!");
+                                            MessageBox.Show($"Table {username} created successfully!");
 
                                         }
 

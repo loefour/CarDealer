@@ -136,6 +136,7 @@
             button2.Size = new Size(39, 36);
             button2.TabIndex = 19;
             button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
             // 
             // Form7
             // 
@@ -153,7 +154,6 @@
             Controls.Add(emailLabel);
             Controls.Add(nameLebel);
             Controls.Add(userImage);
-            Cursor = Cursors.Default;
             DoubleBuffered = true;
             FormBorderStyle = FormBorderStyle.None;
             Name = "Form7";

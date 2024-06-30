@@ -26,36 +26,9 @@ namespace Prototype
 
         public void search(string key)
         {
-/*
-            SqlConnection conn = new SqlConnection(connectionString);
-            conn.Open();*/
+
             string query = "SELECT * FROM image_list WHERE Name LIKE @name";
-           /* SqlCommand cmd = conn.CreateCommand();
-            cmd.CommandText = query;
-            cmd.Parameters.AddWithValue("@name", key + "%");
-            SqlDataReader reader = cmd.ExecuteReader();
-            list.Clear();
-
-            if (reader.HasRows)
-            {
-                while (reader.Read())
-                {
-                    DataSearch data = new DataSearch()
-                    {
-                        name = reader["name"].ToString(),
-                        info = reader["info"].ToString(),
-                        price = reader["price"].ToString(),
-                        image = reader["image"].ToString()
-
-                    };
-                    Debug.WriteLine(name, price + "Fuck You");
-
-                    list.Add(data);
-                }
-            }
-            reader.Dispose();
-            cmd.Dispose();
-            conn.Close();*/
+           
 
 
             using (SqlConnection connection = new SqlConnection(connectionString))

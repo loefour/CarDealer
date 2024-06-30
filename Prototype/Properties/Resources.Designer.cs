@@ -224,6 +224,16 @@ namespace Prototype.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap gradient__11_10 {
+            get {
+                object obj = ResourceManager.GetObject("gradient (11)10", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap gradient__11_2 {
             get {
                 object obj = ResourceManager.GetObject("gradient (11)2", resourceCulture);

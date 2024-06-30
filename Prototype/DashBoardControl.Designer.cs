@@ -99,9 +99,9 @@
             label1.Font = new Font("Segoe UI Light", 10.2F);
             label1.Location = new Point(3, 203);
             label1.Name = "label1";
-            label1.Size = new Size(54, 23);
+            label1.Size = new Size(62, 23);
             label1.TabIndex = 8;
-            label1.Text = "Price :";
+            label1.Text = "Name :";
             // 
             // label3
             // 
@@ -109,9 +109,9 @@
             label3.Font = new Font("Segoe UI Light", 10.2F);
             label3.Location = new Point(3, 248);
             label3.Name = "label3";
-            label3.Size = new Size(54, 23);
+            label3.Size = new Size(47, 23);
             label3.TabIndex = 9;
-            label3.Text = "Price :";
+            label3.Text = "Info :";
             // 
             // infolabel
             // 
