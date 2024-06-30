@@ -273,6 +273,7 @@
             DoubleBuffered = true;
             FormBorderStyle = FormBorderStyle.None;
             Name = "Form1";
+            Opacity = 0.9D;
             Text = "Form1";
             Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();

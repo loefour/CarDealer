@@ -39,11 +39,17 @@ namespace Prototype
             gp.AddEllipse(0, 0, CarPicture.Width - 3, CarPicture.Height - 3);
             Region rg = new Region(gp);
             CarPicture.Region = rg;
-
+            purchusButton.Visible = false;
+            panel3.Visible = false;
+            panel4.Visible = false;
+            panel5.Visible = false;
+            lbinfo.Visible = false;
+            lbprice.Visible = false;
+            lbname.Visible = false;
 
             if (lbname.Text == "label1")
             {
-                purchusButton.Visible = false;
+                
             }
 
 
@@ -94,6 +100,13 @@ namespace Prototype
                 textBox1.Clear();
                 SearchCarControl.clicked = false;
                 purchusButton.Visible = true;
+                panel3.Visible = true;
+                panel4.Visible = true;
+                panel5.Visible = true;
+                lbinfo.Visible = true;
+                lbprice.Visible = true;
+                lbname.Visible = true;
+
             }
         }
 

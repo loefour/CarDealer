@@ -43,6 +43,7 @@
             panel3 = new Panel();
             panel4 = new Panel();
             panel5 = new Panel();
+            label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)CarPicture).BeginInit();
             panel1.SuspendLayout();
@@ -52,9 +53,9 @@
             // 
             pictureBox1.BackColor = Color.Transparent;
             pictureBox1.Image = Properties.Resources.search__1_;
-            pictureBox1.Location = new Point(497, 40);
+            pictureBox1.Location = new Point(405, 3);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(36, 37);
+            pictureBox1.Size = new Size(43, 33);
             pictureBox1.TabIndex = 2;
             pictureBox1.TabStop = false;
             // 
@@ -62,9 +63,9 @@
             // 
             CarPicture.BackColor = Color.Transparent;
             CarPicture.Image = Properties.Resources.photo_2024_06_07_22_13_25;
-            CarPicture.Location = new Point(226, 150);
+            CarPicture.Location = new Point(211, 150);
             CarPicture.Name = "CarPicture";
-            CarPicture.Size = new Size(150, 150);
+            CarPicture.Size = new Size(180, 150);
             CarPicture.SizeMode = PictureBoxSizeMode.StretchImage;
             CarPicture.TabIndex = 3;
             CarPicture.TabStop = false;
@@ -127,7 +128,7 @@
             // 
             textBox1.BackColor = Color.White;
             textBox1.BorderStyle = BorderStyle.FixedSingle;
-            textBox1.Location = new Point(3, 1);
+            textBox1.Location = new Point(3, 5);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(400, 27);
             textBox1.TabIndex = 8;
@@ -135,18 +136,21 @@
             // 
             // panel1
             // 
-            panel1.BackColor = Color.FromArgb(63, 119, 132);
+            panel1.BackColor = Color.Transparent;
             panel1.Controls.Add(textBox1);
-            panel1.Location = new Point(88, 42);
+            panel1.Controls.Add(pictureBox1);
+            panel1.Location = new Point(75, 87);
             panel1.Name = "panel1";
-            panel1.Size = new Size(406, 30);
+            panel1.Size = new Size(445, 37);
             panel1.TabIndex = 9;
             // 
             // containerResualt
             // 
             containerResualt.AutoScroll = true;
             containerResualt.BackColor = Color.FromArgb(116, 150, 158);
-            containerResualt.Location = new Point(86, 88);
+            containerResualt.Location = new Point(78, 130);
+            containerResualt.MaximumSize = new Size(410, 180);
+            containerResualt.MinimumSize = new Size(410, 0);
             containerResualt.Name = "containerResualt";
             containerResualt.Size = new Size(410, 0);
             containerResualt.TabIndex = 10;
@@ -190,6 +194,18 @@
             panel5.Size = new Size(250, 1);
             panel5.TabIndex = 17;
             // 
+            // label1
+            // 
+            label1.BackColor = Color.Transparent;
+            label1.Font = new Font("Californian FB", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(44, 48);
+            label1.Name = "label1";
+            label1.Size = new Size(511, 36);
+            label1.TabIndex = 18;
+            label1.Text = "Search For Car";
+            label1.TextAlign = ContentAlignment.MiddleCenter;
+            // 
             // Search
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -197,6 +213,7 @@
             BackColor = Color.White;
             BackgroundImage = Properties.Resources.gradient__10_1;
             ClientSize = new Size(588, 581);
+            Controls.Add(label1);
             Controls.Add(panel5);
             Controls.Add(panel4);
             Controls.Add(panel3);
@@ -205,7 +222,6 @@
             Controls.Add(panel1);
             Controls.Add(purchusButton);
             Controls.Add(CarPicture);
-            Controls.Add(pictureBox1);
             Controls.Add(lbprice);
             Controls.Add(lbinfo);
             Controls.Add(lbname);
@@ -236,5 +252,6 @@
         private Panel panel3;
         private Panel panel4;
         private Panel panel5;
+        private Label label1;
     }
 }

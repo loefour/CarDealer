@@ -57,7 +57,7 @@
             namelabel.AutoSize = true;
             namelabel.BackColor = Color.Transparent;
             namelabel.ForeColor = Color.White;
-            namelabel.Location = new Point(265, 93);
+            namelabel.Location = new Point(263, 103);
             namelabel.Name = "namelabel";
             namelabel.Size = new Size(50, 20);
             namelabel.TabIndex = 1;
@@ -68,7 +68,7 @@
             budgetlabel.AutoSize = true;
             budgetlabel.BackColor = Color.Transparent;
             budgetlabel.ForeColor = Color.White;
-            budgetlabel.Location = new Point(265, 168);
+            budgetlabel.Location = new Point(263, 178);
             budgetlabel.Name = "budgetlabel";
             budgetlabel.Size = new Size(50, 20);
             budgetlabel.TabIndex = 2;
@@ -79,7 +79,7 @@
             userControll.AutoSize = true;
             userControll.BackColor = Color.Transparent;
             userControll.ForeColor = Color.White;
-            userControll.Location = new Point(265, 118);
+            userControll.Location = new Point(263, 128);
             userControll.Name = "userControll";
             userControll.Size = new Size(50, 20);
             userControll.TabIndex = 3;
@@ -116,7 +116,7 @@
             emailLabel.AutoSize = true;
             emailLabel.BackColor = Color.Transparent;
             emailLabel.ForeColor = Color.White;
-            emailLabel.Location = new Point(265, 143);
+            emailLabel.Location = new Point(263, 153);
             emailLabel.Name = "emailLabel";
             emailLabel.Size = new Size(50, 20);
             emailLabel.TabIndex = 6;
@@ -127,7 +127,7 @@
             label1.AutoSize = true;
             label1.BackColor = Color.Transparent;
             label1.ForeColor = Color.FromArgb(255, 192, 128);
-            label1.Location = new Point(203, 93);
+            label1.Location = new Point(201, 103);
             label1.Name = "label1";
             label1.Size = new Size(56, 20);
             label1.TabIndex = 7;
@@ -138,7 +138,7 @@
             label2.AutoSize = true;
             label2.BackColor = Color.Transparent;
             label2.ForeColor = Color.FromArgb(255, 192, 128);
-            label2.Location = new Point(205, 118);
+            label2.Location = new Point(203, 128);
             label2.Name = "label2";
             label2.Size = new Size(50, 20);
             label2.TabIndex = 8;
@@ -149,7 +149,7 @@
             label3.AutoSize = true;
             label3.BackColor = Color.Transparent;
             label3.ForeColor = Color.FromArgb(255, 192, 128);
-            label3.Location = new Point(205, 143);
+            label3.Location = new Point(203, 153);
             label3.Name = "label3";
             label3.Size = new Size(53, 20);
             label3.TabIndex = 10;
@@ -160,7 +160,7 @@
             label4.AutoSize = true;
             label4.BackColor = Color.Transparent;
             label4.ForeColor = Color.FromArgb(255, 192, 128);
-            label4.Location = new Point(205, 168);
+            label4.Location = new Point(203, 178);
             label4.Name = "label4";
             label4.Size = new Size(49, 20);
             label4.TabIndex = 9;
@@ -184,7 +184,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Transparent;
-            BackgroundImage = Properties.Resources.gradient__12_;
+            BackgroundImage = Properties.Resources.gradient__11_9;
             BackgroundImageLayout = ImageLayout.Stretch;
             Controls.Add(deleteUser);
             Controls.Add(label3);

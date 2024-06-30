@@ -105,16 +105,26 @@ namespace Prototype
             {
                 if (usertype == "administrator")
                 {
+                    userControll.ForeColor = Color.FromArgb(44, 194, 123);
                     deleteUser.Enabled = false;
                     deleteUser.Visible = false;
                     LevelUpButton.Enabled = false;
                     LevelUpButton.Visible = false;
+                }
+                else if(usertype == "admin")
+                {
+                    userControll.ForeColor = Color.FromArgb(255, 91, 8);
+                }
+                else if(usertype == "")
+                {
+                    usertype = "Normal";
                 }
             }
 
 
             else if (Class1.UserAdmin == "admin")
             {
+                userControll.ForeColor = Color.FromArgb(94, 181, 246);
                 deleteUser.Enabled = false;
                 deleteUser.Visible = false;
                 if (usertype == "admin" || usertype == "administrator")
@@ -123,6 +133,10 @@ namespace Prototype
                     LevelUpButton.Visible = false;
                     uservaultButton.Enabled = false;
                     uservaultButton.Visible = false;
+                }
+                else if (usertype == "")
+                {
+                    usertype = "Normal";
                 }
             }
 

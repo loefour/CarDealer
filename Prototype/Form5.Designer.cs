@@ -32,6 +32,7 @@
             flowLayoutPanel1 = new FlowLayoutPanel();
             button1 = new Button();
             imageList1 = new ImageList(components);
+            label1 = new Label();
             SuspendLayout();
             // 
             // flowLayoutPanel1
@@ -63,16 +64,27 @@
             imageList1.ImageSize = new Size(16, 16);
             imageList1.TransparentColor = Color.Transparent;
             // 
+            // label1
+            // 
+            label1.Font = new Font("Californian FB", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(45, 2);
+            label1.Name = "label1";
+            label1.Size = new Size(439, 41);
+            label1.TabIndex = 2;
+            label1.Text = "User Manager";
+            label1.TextAlign = ContentAlignment.MiddleCenter;
+            // 
             // Form5
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(34, 40, 45);
-            BackgroundImage = Properties.Resources.gradient__11_3;
+            BackColor = Color.FromArgb(210, 213, 213);
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(520, 536);
+            Controls.Add(label1);
             Controls.Add(button1);
             Controls.Add(flowLayoutPanel1);
+            DoubleBuffered = true;
             FormBorderStyle = FormBorderStyle.None;
             Name = "Form5";
             Text = "Form5";
@@ -85,5 +97,6 @@
         private FlowLayoutPanel flowLayoutPanel1;
         private ImageList imageList1;
         private Button button1;
+        private Label label1;
     }
 }

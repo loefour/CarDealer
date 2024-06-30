@@ -210,6 +210,7 @@
             Controls.Add(button1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "Form2";
+            Opacity = 0.9D;
             Text = "Form2";
             Load += Form2_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
